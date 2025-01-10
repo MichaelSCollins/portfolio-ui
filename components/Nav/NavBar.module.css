@@ -1,0 +1,41 @@
+.navbar {
+    background-color: var(--background);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.mike {
+    color: var(--secondary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.dev {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navItems {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navLink {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
