@@ -1,27 +1,27 @@
-import ButtonSection from "@/components/ButtonSection";
-import Header from "@/components/Header";
-import ImageCard from "@/components/ImageOverlay";
-import SwirlyIcon from "@/components/SwirlyArrowBgIcon";
-import Image from "next/image";
+import OverlayLayers from "@/components/Image/OverlayLayers";
+import Hero from "@/components/hero/Hero";
+import DownButton from "@/components/controls/DownButton";
+
+const title = "MIKE COLLINS"
+const subtitle = "Lead Developer"
+const imageSrc = "/img/page-content/blue-guy-3.png"
+const imageWidth = 600
+
+export enum OverlayAnchors {
+  BOTTOM_RIGHT = "overlay-right",
+  BOTTOM_LEFT = "overlay-left",
+}
 
 export default function Home() {
   return (
     <div className="p-4 min-h-screen font-[family-name:var(--font-geist-sans)]">
-      <main className="w-full flex flex-row  mt-24">
-          <SwirlyIcon />
-          <article>
-          <section className="flex flex-col w-full justify-left ml-16">
-          <Header/>
-          <ButtonSection/>
-        </section>
-        <ImageCard 
-          src={"/img/page-content/blue-guy-3.png"} 
-          alt={""} 
-          width={300} 
-          height={500} />
-          </article>
-        
-      </main>
+        <OverlayLayers 
+          anchor={OverlayAnchors.BOTTOM_RIGHT}
+          src={imageSrc}
+          width={imageWidth}>
+          <Hero {...{ title, subtitle }} />
+          <DownButton/>
+        </OverlayLayers>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         
       </footer>

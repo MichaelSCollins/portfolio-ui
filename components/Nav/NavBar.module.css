@@ -24,18 +24,31 @@
     font-weight: bold;
 }
 
-.navItems {
+.nav-items {
+    color: var(--foreground);
     list-style: none;
-    display: flex;
     gap: 1rem;
+    display: none;
+    flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
-.navLink {
+.nav-link {
     color: var(--secondary);
     text-decoration: none;
     font-size: 1rem;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+        flex-direction: row;
+
+    }
 }
 
-.navLink:hover {
-    text-decoration: underline;
+.nav-link:hover {
+    color: var(--primary);
 }

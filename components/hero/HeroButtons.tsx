@@ -1,0 +1,38 @@
+import { FaDownload } from 'react-icons/fa';
+import { FaBuildingUser } from 'react-icons/fa6';
+import Link from 'next/link';
+
+const HeroButtons: React.FC = () => {
+
+    return (
+        <section className={`
+            flex gap-2.5 max-sm:flex-col
+            mt-1 
+            w-full max-sm:w-7/12
+            text-center lg:text-xs text-nowrap`}>
+            <Link 
+                className={`
+                    bg-secondary text-foreground
+                    flex justify-center gap-2
+                    rounded-3xl 
+                    py-2.5 md:px-5 max-sm:px-2`}
+                href={'https://calendly.com/michaelscollins-it/15min'}
+            >
+                Download CV
+                <FaDownload />
+            </Link>
+            <Link
+                className={`bg-primary text-foreground 
+                    py-2.5 px-11 
+                    shadow-2xl border-none rounded-3xl 
+                    flex justify-center gap-2`}
+                href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
+            >
+            Hire Me
+            <FaBuildingUser />
+            </Link>
+        </section>
+    );
+};
+
+export default HeroButtons;

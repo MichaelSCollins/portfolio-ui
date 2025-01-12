@@ -41,3 +41,7 @@ body {
   flex-grow: 0;
 
 }
+
+main {
+  @apply w-full flex flex-row  mt-24
+}
