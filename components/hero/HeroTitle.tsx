@@ -21,7 +21,8 @@ const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, description, pos
                 flex flex-col
                 left-0 items-start
                 max-sm:justify-center
-                mb-2
+                lg:mb-8
+                max-lg:mb-2
                 text-weight-bold
                 text-nowrap
             `}

@@ -4,7 +4,7 @@
 
 :root {
   --primary: #00ADB5;
-  --secondary: #EEEEEE;
+  --secondary: #3C3946;
   --accent: #3C3946;
   --background: #222831;
   --foreground: #EEEEEE;
@@ -22,6 +22,7 @@ body {
   background: var(--background);
   font-family: Poppins, sans-serif;
 }
+
 .header {
   /* MIKE COLLINS Lead Developer */
   font-family: 'Poppins';
@@ -43,5 +44,5 @@ body {
 }
 
 main {
-  @apply w-full flex flex-row  mt-24
+  @apply w-full flex flex-row mt-24
 }

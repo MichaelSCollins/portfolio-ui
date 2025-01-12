@@ -11,8 +11,10 @@ interface ImageCardProps {
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ src, alt, anchor, width, height }) => {
-    const twStyles = twMerge(`overlay-${anchor} z-0 max-lg:w-6/12 max-sm:w-2/3`);
-    return <Image src={src} alt={alt} className={twStyles} width={width} height={height}/>
+    const twStyles = twMerge(`
+        ${anchor} z-0 
+        max-lg:w-6/12 max-sm:w-2/3`);
+    return <Image src={src} alt={alt} className={twStyles} width={width} height={height} />
 };
 
 export default ImageCard;

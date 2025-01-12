@@ -9,8 +9,9 @@ const HeroButtons: React.FC = () => {
             flex gap-2.5 max-sm:flex-col
             mt-1 
             w-full max-sm:w-7/12
-            text-center lg:text-xs text-nowrap`}>
-            <Link 
+            text-center text-nowrap
+            lg:text-xs`}>
+            <Link
                 className={`
                     bg-secondary text-foreground
                     flex justify-center gap-2
@@ -28,8 +29,8 @@ const HeroButtons: React.FC = () => {
                     flex justify-center gap-2`}
                 href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >
-            Hire Me
-            <FaBuildingUser />
+                Hire Me
+                <FaBuildingUser />
             </Link>
         </section>
     );

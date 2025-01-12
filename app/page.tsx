@@ -14,16 +14,16 @@ export enum OverlayAnchors {
 
 export default function Home() {
   return (
-    <div className="p-4 min-h-screen font-[family-name:var(--font-geist-sans)]">
-        <OverlayLayers 
-          anchor={OverlayAnchors.BOTTOM_RIGHT}
-          src={imageSrc}
-          width={imageWidth}>
-          <Hero {...{ title, subtitle }} />
-          <DownButton/>
-        </OverlayLayers>
+    <div className="p-4= font-[family-name:var(--font-geist-sans)]">
+      <OverlayLayers
+        anchor={OverlayAnchors.BOTTOM_RIGHT}
+        src={imageSrc}
+        width={imageWidth}>
+        <Hero {...{ title, subtitle }} />
+        <DownButton />
+      </OverlayLayers>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        
+
       </footer>
     </div>
   );

@@ -13,8 +13,8 @@ const defaults = {
     bgSymbols: [
         {
             symbolId: SymbolId.Arrow, position: {
-                top: '25%',
-                left: '2%'
+                top: '18%',
+                left: '2%',
             }
         },
         // { symbolId: SymbolId.Keyboard, position: { top: '12%', right: '0%' } }
@@ -32,7 +32,7 @@ interface OverlayLayersProps {
 }
 
 const BackgroundSymbolsLayer = ({ bgSymbols }: { bgSymbols: BgSymbol[] }) => (
-    <div id="bg-symbols" className="w-full absolute top-0 h-screen">
+    <div id="bg-symbols" className="w-full h-full absolute top-0">
         {bgSymbols?.map((symbol: BgSymbol, index: number) => (
             <div key={index} style={{ position: 'absolute', ...symbol.position }}>
                 <SymbolStrategy {...symbol} />
@@ -47,7 +47,7 @@ const OverlayLayers = ({ children,
     width = defaults.width,
     height = defaults.height,
     bgSymbols = defaults.bgSymbols
-}: OverlayLayersProps) => <main >
+}: OverlayLayersProps) => <main className="">
         <BackgroundSymbolsLayer bgSymbols={bgSymbols} />
         {children}
         <ImageCard

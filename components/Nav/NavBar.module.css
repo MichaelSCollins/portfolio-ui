@@ -12,7 +12,7 @@
 }
 
 .mike {
-    color: var(--secondary);
+    color: var(--foreground);
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 0.5rem;
@@ -24,8 +24,7 @@
     font-weight: bold;
 }
 
-.nav-items {
-    color: var(--foreground);
+.navItems {
     list-style: none;
     gap: 1rem;
     display: none;
@@ -37,7 +36,7 @@
     }
 }
 
-.nav-link {
+.nav-Link {
     color: var(--secondary);
     text-decoration: none;
     font-size: 1rem;
@@ -45,10 +44,9 @@
     @media screen and (max-width: 768px) {
         display: none;
         flex-direction: row;
-
     }
 }
 
-.nav-link:hover {
-    color: var(--primary);
+.navLink:hover {
+    text-decoration: underline;
 }
