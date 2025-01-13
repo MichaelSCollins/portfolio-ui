@@ -16,10 +16,9 @@ const Hero = ({
   position?: HeroPosition,
   hideButtons?: boolean
 }) => {
-  console.log({ hideButtons })
   return <HeroContainer
     className={`${position === HeroPosition.CONTACT
-      ? "left-0 absolute"
+      ? "left-0 absolute top-32"
       : ""
       }`}>
     <HeroTitle {...{ title, subtitle, description, position }} />

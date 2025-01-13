@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "items": [
+      {
+        "name": "Home",
+        "href": "/"
+      },
+      {
+        "name": "Contact Me",
+        "href": "/contact"
+      }
+    ]
+  },
+  "header": {
+    "name": "MIKE COLLINS",
+    "title": "Lead Developer",
+    "buttonText": "Learn More"
+  },
+  "overlay": {
+    "alt": "Overlay-Image"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Feel free to reach out to us for any inquiries.",
+    "buttonText": "Send Message"
+  }
+}

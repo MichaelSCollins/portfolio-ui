@@ -20,7 +20,7 @@ const HeroButtons: React.FC = () => {
                 href={'https://calendly.com/michaelscollins-it/15min'}
             >
                 Download CV
-                <FaDownload />
+                <FaDownload className='mt-1' />
             </Link>
             <Link
                 className={`bg-primary text-foreground 
@@ -30,7 +30,7 @@ const HeroButtons: React.FC = () => {
                 href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >
                 Hire Me
-                <FaBuildingUser />
+                <FaBuildingUser className='mt-1' />
             </Link>
         </section>
     );
