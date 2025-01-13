@@ -18,7 +18,7 @@ const NavbarMobile = () => {
             <MenuButton onClick={toggleMenu}>
                 <RxHamburgerMenu className="hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 z-30 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
             </MenuButton>
-            {isOpen && <Menu className="z-50  transition duration-2500 ease-in-out" isOpen={isOpen}>
+            {isOpen && <Menu className="z-50 absolute top-20 right-5 transition duration-2500 ease-in-out" isOpen={isOpen}>
                 <MenuItem href="/"><FaHome /> Home</MenuItem>
                 {/* <MenuItem href="#about"><FaInfoCircle /> About</MenuItem> */}
                 {/* <MenuItem href="#services"><FaServicestack /> Services</MenuItem> */}
@@ -36,13 +36,8 @@ const MenuButton = styled.button`
 `;
 
 const Menu = styled.div<{ isOpen: boolean }>`
-    display: block;
-    position: absolute;
+    display: absolute;
     width: 80%;
-    top: auto;
-    bottom: auto;
-    right: auto;
-    left: auto;
     background-color: var(--secondary);
     color: white;
     text-align: center;

@@ -3,7 +3,6 @@ import { FaBuildingUser } from 'react-icons/fa6';
 import Link from 'next/link';
 
 const HeroButtons: React.FC = () => {
-
     return (
         <section className={`
             flex gap-2.5 max-sm:flex-col
