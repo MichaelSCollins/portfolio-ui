@@ -33,9 +33,6 @@ const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, description, pos
             <span className={twSubtitle}>
                 <b >{subtitle}</b>
             </span>
-            {description && <p>
-                {description}
-            </p>}
         </section>
     );
 };

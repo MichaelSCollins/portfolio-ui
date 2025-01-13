@@ -23,6 +23,7 @@ const Hero = ({
       }`}>
     <HeroTitle {...{ title, subtitle, description, position }} />
     {!hideButtons ? <HeroButtons /> : <></>}
+    {description ? <p className="max-sm:w-3/4 w-1/3">{description}</p> : <></>}
   </HeroContainer>
 }
 export default Hero;
