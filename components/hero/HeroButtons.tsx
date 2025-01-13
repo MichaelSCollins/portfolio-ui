@@ -17,17 +17,18 @@ const HeroButtons: React.FC = () => {
                     flex justify-center gap-2
                     rounded-3xl 
                     py-2.5 md:px-5 max-sm:px-2`}
-                href={'https://calendly.com/michaelscollins-it/15min'}
+                href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >
                 Download CV
                 <FaDownload className='mt-1' />
             </Link>
             <Link
+                href={'https://calendly.com/michaelscollins-it/15min'}
                 className={`bg-primary text-foreground 
                     py-2.5 px-11 
                     shadow-2xl border-none rounded-3xl 
                     flex justify-center gap-2`}
-                href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
+
             >
                 Hire Me
                 <FaBuildingUser className='mt-1' />
