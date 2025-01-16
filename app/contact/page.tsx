@@ -3,7 +3,7 @@ import Hero from '@/components/hero/Hero';
 import { SymbolId } from '@/components/Image/bg/symbols/SymbolStrategy';
 import OverlayLayers from '@/components/Image/OverlayLayers';
 import HeroPosition from '@/enums/HeroPosition';
-import { OverlayAnchors } from '../page';
+import { OverlayAnchors } from '@/enums/OverlayDirection';
 
 const title = "Got a project in"
 const subtitle = "mind?"
@@ -11,29 +11,37 @@ const position = HeroPosition.CONTACT
 
 const ContactPage = () => {
     return (
-        <section className={`
-            flex 
-            max-md:flex-col max-md:px-9 max-md:ml-6 max-md:mt-20`}>
-            <OverlayLayers
-                bgSymbols={[
-                    {
-                        symbolId: SymbolId.Keyboard, position:
-                            { top: '11%', right: '43%' }
-                    }
-                ]}
-                anchor={OverlayAnchors.BOTTOM_LEFT} src="/img/page-content/blue-guy-2.png">
-                <Hero {...{ title, subtitle, position }} hideButtons />
-            </OverlayLayers>
+        <><section className={`
+            flex max-md:flex-col 
+            justify-around w-full
+            max-md:px-9 max-md:my-auto max-md:mx-auto 
+            md:px-9 md:pt-12
+            `}><Hero {...{ title, subtitle, position }} hideButtons />
+
             <ContactForm />
-        </section>
+        </section><OverlayLayers
+            bgSymbols={[
+                {
+                    symbolId: SymbolId.Keyboard, position: { top: '11%', right: '43%' }
+                }, {
+                    symbolId: SymbolId.Mail,
+                    position: {
+                        bottom: '31%',
+                        right: '18%'
+                    }
+                }
+            ]}
+            anchor={OverlayAnchors.BOTTOM_LEFT} src="/img/page-content/blue-guy-2.png">
+
+            </OverlayLayers></>
     );
 };
 
 const ContactForm = () => {
     return <form className={`
         z-20
-        md:w-3/5
-        md:mr-24 md:mt-24
+        w-full
+        md:ml-12
         grid grid-col gap-4 justify-center`}>
         <div className="grid grid-cols-2 gap-4">
             <fieldset className="flex flex-col">

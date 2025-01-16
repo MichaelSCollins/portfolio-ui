@@ -7,7 +7,7 @@ const HeroButtons: React.FC = () => {
         <section className={`
             flex gap-2.5 max-sm:flex-col
             mt-1 
-            w-full max-sm:w-7/12
+            w-full
             text-center text-nowrap
             lg:text-xs`}>
             <Link

@@ -1,0 +1,32 @@
+nav:
+  items:
+    - name: "Home"
+      link: "/"
+    - name: "Experience"
+      link: "/Experience"
+    - name: "Contact"
+      link: "/contact"
+header:
+  name: "MIKE COLLINS"
+  title: "Lead Developer"
+  buttonText: "Learn More"
+overlay:
+  alt: "Overlay-Image"
+contact:
+  title: "Contact Us"
+  description: "Feel free to reach out to us for any inquiries."
+  buttonText: "Send Message"
+experience:
+  title: "My Experience"
+  skills:
+    javascript: "JavaScript"
+    react: "React"
+    nodejs: "Node.js"
+    css: "CSS"
+    html: "HTML"
+  company1:
+    name: "Company One"
+    description: "Worked on various projects involving JavaScript, React, and Node.js."
+  company2:
+    name: "Company Two"
+    description: "Focused on front-end development with CSS and HTML, along with React."

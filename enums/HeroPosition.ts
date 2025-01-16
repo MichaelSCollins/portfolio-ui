@@ -1,6 +1,7 @@
 enum HeroPosition {
     TITLE,
-    CONTACT
+    CONTACT,
+    ABOUT
 }
 
 export default HeroPosition;

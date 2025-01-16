@@ -1,15 +1,16 @@
 import { ReactNode } from "react";
 
-import ImageCard from "./ImageCard";
+import ImageOverlay from "./ImageCard";
 import SymbolStrategy, { SymbolId } from "./bg/symbols/SymbolStrategy";
 import { BgSymbol } from "@/interfaces/BgSymbol";
+import { OverlayAnchors } from "@/enums/OverlayDirection";
 
 const defaults = {
     width: 600,
     height: 300,
     src: "img/page-content/blue-guy-3.png",
-    anchor: "right",
     alt: "Overlay-Image",
+    anchor: OverlayAnchors.BOTTOM_RIGHT,
     bgSymbols: [
         {
             symbolId: SymbolId.Arrow, position: {
@@ -24,7 +25,7 @@ const defaults = {
 interface OverlayLayersProps {
     children?: ReactNode;
     src?: string;
-    anchor?: string;
+    anchor?: OverlayAnchors;
     width?: number;
     height?: number;
     alt?: string;
@@ -32,7 +33,7 @@ interface OverlayLayersProps {
 }
 
 const BackgroundSymbolsLayer = ({ bgSymbols }: { bgSymbols: BgSymbol[] }) => (
-    <div id="bg-symbols" className="w-full h-full absolute top-0">
+    <div id="bg-symbols" className="w-full absolute top-0">
         {bgSymbols?.map((symbol: BgSymbol, index: number) => (
             <div key={index} style={{ position: 'absolute', ...symbol.position }}>
                 <SymbolStrategy {...symbol} />
@@ -47,10 +48,10 @@ const OverlayLayers = ({ children,
     width = defaults.width,
     height = defaults.height,
     bgSymbols = defaults.bgSymbols
-}: OverlayLayersProps) => <main className="">
+}: OverlayLayersProps) => <main className="flex flex-col">
         <BackgroundSymbolsLayer bgSymbols={bgSymbols} />
         {children}
-        <ImageCard
+        <ImageOverlay
             {...{
                 ...defaults,
                 src: src || defaults.src,

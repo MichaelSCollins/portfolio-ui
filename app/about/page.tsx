@@ -1,26 +1,35 @@
 import OverlayLayers from "@/components/Image/OverlayLayers";
+import { SymbolId } from "@/components/Image/bg/symbols/SymbolStrategy";
 import UpButton from "@/components/controls/UpButton";
-import Hero from "@/components/hero/Hero";
+import Hero from "@/components/hero/Hero"
+import HeroPosition from "@/enums/HeroPosition";
+import { OverlayAnchors } from "@/enums/OverlayDirection";
 
 const title = 'Hire a developer'
-const subtitle = 'that can lead'
+const subtitle = 'that can take the lead'
 const imageSrc = "/img/bg/image.png"
 const imageWidth = 600
 
-export enum OverlayAnchors {
-  BOTTOM_RIGHT = "overlay-right",
-  BOTTOM_LEFT = "overlay-left",
-}
-
 export default function About() {
   return (
-    <div className="p-4= font-[family-name:var(--font-geist-sans)]">
+    <div className="p-1 font-[family-name:var(--font-geist-sans)]">
       <OverlayLayers
-        anchor={OverlayAnchors.BOTTOM_RIGHT}
+        anchor={OverlayAnchors.BIG_BOTTOM_RIGHT}
         src={imageSrc}
+        bgSymbols={[{
+          symbolId: SymbolId.Keyboard, position:
+            { top: '11%', right: '43%' }
+        }]}
         width={imageWidth}>
-        <Hero {...{ title, subtitle, description: "As a lead developer, I bring years of experience in guiding teams and overseeing the development of complex, high-performance web applications. I specialize in both front-end and back-end technologies, including React, Angular, and various server-side frameworks such as Node.js and Springboot. My leadership approach focuses on clear communication, and efficient workflows by helping my team produce innovative, scalable solutions." }} hideButtons />
-        <UpButton />
+        <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2">
+          <UpButton />
+          <Hero {...{
+            title, subtitle,
+            description: "As a lead developer, I bring years of experience in guiding teams and overseeing the development of complex, high-performance web applications. I specialize in both front-end and back-end technologies, including React, Angular, and various server-side frameworks such as Node.js and Springboot. My leadership approach focuses on clear communication, and efficient workflows by helping my team produce innovative, scalable solutions."
+          }}
+            position={HeroPosition.ABOUT} hideButtons />
+
+        </div>
       </OverlayLayers>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
 

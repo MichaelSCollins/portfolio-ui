@@ -17,7 +17,16 @@ export default {
         bottom: '0',
         display: 'flex',
         justifyContent: 'right',
-        alignItems: 'right',
+        alignItems: 'right'
+      }
+      overlayUtilities['.big-overlay-right'] = {
+        position: 'absolute',
+        right: '0',
+        bottom: '0',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'right',
+        alignItems: 'right'
       }
       overlayUtilities['.overlay-left'] = {
         position: 'absolute',
@@ -38,6 +47,7 @@ export default {
         'hmd': '2.8rem',
         'hsm': '2.2rem',
         'hxs': '1.85rem',
+        'h2xs': '1.55rem'
       },
       colors: {
         background: "#222831",

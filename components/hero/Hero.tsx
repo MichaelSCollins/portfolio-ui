@@ -2,6 +2,7 @@ import HeroPosition from "@/enums/HeroPosition";
 import HeroButtons from "./HeroButtons";
 import HeroContainer from "./HeroContainer";
 import HeroTitle from "./HeroTitle";
+// import Link from "next/link";
 
 const Hero = ({
   title,
@@ -16,14 +17,19 @@ const Hero = ({
   position?: HeroPosition,
   hideButtons?: boolean
 }) => {
+  const maxLength = 250
+  const clippedDesc = description?.substring(0, maxLength)
   return <HeroContainer
     className={`${position === HeroPosition.CONTACT
-      ? "left-0 absolute top-32"
-      : ""
+      ? " max-sm:flex max-sm:flex-col "
+      : position === HeroPosition.ABOUT
+        ? " " : ""
       }`}>
     <HeroTitle {...{ title, subtitle, description, position }} />
     {!hideButtons ? <HeroButtons /> : <></>}
-    {description ? <p className="max-sm:w-3/4 w-1/3">{description}</p> : <></>}
+    {description ? <div className="max-sm:w-3/4 w-2/5 cursor-pointer">
+      <p className="text-clip text-xs">{clippedDesc} <a>... [Read More]</a></p>
+    </div> : <></>}
   </HeroContainer>
 }
 export default Hero;

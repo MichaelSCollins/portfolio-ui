@@ -1,0 +1,78 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+}
+
+.hero {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.companyImage {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #bbb;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+}
+
+.screenshotGrid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.screenshotItem {
+    width: 45%;
+}
+
+.skillsList,
+.accomplishmentList {
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+
+.skillsList li,
+.accomplishmentList li {
+    margin-bottom: 10px;
+}
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.socialLinks a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.socialLinks a:hover {
+    text-decoration: underline;
+}
