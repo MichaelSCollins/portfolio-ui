@@ -18,7 +18,7 @@ const Footer: FC = () => {
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex  w-full max-sm:mb-6 max-sm:justify-left space-x-8">
+                <div className="flex  w-full max-sm:mb-6 max-sm:justify-left sm:justify-center space-x-8">
                     <a
                         href="https://github.com/MichaelSCollins"
                         target="_blank"
