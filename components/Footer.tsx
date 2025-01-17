@@ -12,7 +12,7 @@ const Footer: FC = () => {
             <div className="flex flex-col w-full justify-center ">
                 {/* Contact Info */}
                 <div className="flex max-sm:flex-col max-sm:mx- w-full justify-center gap-8 mb-6 text-center md:text-center">
-                    <p className="text-sm flex"><FaPhone className="text-lg mr-1" /> <span className="flex flex-col justify-center">(123) 456-7890</span></p>
+                    <p className="text-sm flex"><FaPhone className="text-lg mr-1" /> <span className="flex flex-col justify-center">(562) 637-6910</span></p>
                     <p className="text-sm flex"><AiOutlineMail className="text-lg mr-1" /> <span className="flex flex-col justify-center">codebigthings@gmail.com</span></p>
                     <p className="text-sm flex"><CiLocationOn className="text-lg mr-1" /> <span className="flex flex-col justify-center">Long Beach, CA</span></p>
                 </div>
