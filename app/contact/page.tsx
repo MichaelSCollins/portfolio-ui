@@ -15,7 +15,7 @@ const ContactPage = () => {
             flex 
             justify-around w-full
             max-sm:px-9 max-sm:my-auto max-sm:mx-auto 
-            md:px-9 z-40
+            md:px-9 
             `}><OverlayLayers
                 bgSymbols={[
                     {
@@ -41,6 +41,7 @@ const ContactPage = () => {
 
 const ContactForm = () => {
     return <form className={`
+        z-50
         w-full
         md:ml-12
         grid grid-col gap-4 justify-center`}>

@@ -25,7 +25,7 @@ const ImageOverlay: React.FC<ImageCardProps> = ({ src, alt, anchor, width, heigh
             ? 'sm:w-8/12 absolute right-0 bottom-0'
             : ''}
          ${anchor == OverlayAnchors.BOTTOM_LEFT
-            ? ' sm:w-6/12 max-sm:w-11/12 z-20 absolute max-sm:left-5 sm:left-4 sm:top-32 max-sm:bottom-0'
+            ? ' sm:w-6/12 max-sm:w-11/12 absolute max-sm:left-5 sm:left-4 sm:top-32 max-sm:bottom-0'
             : ''
         } `);
     return <Image src={src}
