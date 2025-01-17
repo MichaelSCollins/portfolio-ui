@@ -19,11 +19,11 @@ const ContactPage = () => {
             `}><OverlayLayers
                 bgSymbols={[
                     {
-                        symbolId: SymbolId.Keyboard, position: { top: '11%', right: '43%' }
+                        symbolId: SymbolId.Keyboard, position: { top: '21%', right: '43%' }
                     }, {
                         symbolId: SymbolId.Mail,
                         position: {
-                            bottom: '31%',
+                            bottom: '11%',
                             right: '18%'
                         }
                     }
