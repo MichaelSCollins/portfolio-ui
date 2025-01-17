@@ -45,7 +45,7 @@ const Footer: FC = () => {
                     </a>
                 </div>
             </div>
-            <p className="text-right max-sm:text-left sm:pb-6 sm:mr-24">Terms of Service - Privacy Policy</p>
+            <p className="sm:text-right sm:mt-6 max-sm:text-left sm:pb-6 sm:mr-24">Terms of Service - Privacy Policy</p>
         </footer>
         // </>
     );
