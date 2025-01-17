@@ -34,7 +34,7 @@ interface OverlayLayersProps {
 }
 
 const BackgroundSymbolsLayer = ({ bgSymbols }: { bgSymbols: BgSymbol[] }) => (
-    <div id="bg-symbols" className="w-full absolute top-0 -z-10">
+    <div id="bg-symbols" className="w-full absolute top-0">
         {bgSymbols?.map((symbol: BgSymbol, index: number) => (
             <div key={index} style={{ position: 'absolute', ...symbol.position }}>
                 <SymbolStrategy {...symbol} />
