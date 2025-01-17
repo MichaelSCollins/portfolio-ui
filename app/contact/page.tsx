@@ -15,7 +15,7 @@ const ContactPage = () => {
             flex 
             justify-around w-full
             max-sm:px-9 max-sm:my-auto max-sm:mx-auto 
-            md:px-9
+            md:px-9 z-0
             `}><OverlayLayers
                 bgSymbols={[
                     {
