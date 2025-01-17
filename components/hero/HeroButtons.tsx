@@ -14,7 +14,7 @@ const HeroButtons: React.FC = () => {
                 className={`
                     bg-secondary text-foreground
                     flex justify-center gap-2
-                    rounded-3xl 
+                    rounded-3xl cursor-pointer
                     py-2.5 md:px-5 max-sm:px-2`}
                 href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >

@@ -12,34 +12,35 @@ const position = HeroPosition.CONTACT
 const ContactPage = () => {
     return (
         <><section className={`
-            flex max-md:flex-col 
+            flex 
             justify-around w-full
-            max-md:px-9 max-md:my-auto max-md:mx-auto 
-            md:px-9 md:pt-12
-            `}><Hero {...{ title, subtitle, position }} hideButtons />
-
-            <ContactForm />
-        </section><OverlayLayers
-            bgSymbols={[
-                {
-                    symbolId: SymbolId.Keyboard, position: { top: '11%', right: '43%' }
-                }, {
-                    symbolId: SymbolId.Mail,
-                    position: {
-                        bottom: '31%',
-                        right: '18%'
+            max-sm:px-9 max-sm:my-auto max-sm:mx-auto 
+            md:px-9
+            `}><OverlayLayers
+                bgSymbols={[
+                    {
+                        symbolId: SymbolId.Keyboard, position: { top: '11%', right: '43%' }
+                    }, {
+                        symbolId: SymbolId.Mail,
+                        position: {
+                            bottom: '31%',
+                            right: '18%'
+                        }
                     }
-                }
-            ]}
-            anchor={OverlayAnchors.BOTTOM_LEFT} src="/img/page-content/blue-guy-2.png">
+                ]}
+                anchor={OverlayAnchors.BOTTOM_LEFT} src="/img/page-content/blue-guy-2.png">
+                <div className="w-full flex max-sm:flex-col sm:justify-between">
+                    <Hero {...{ title, subtitle, position }} hideButtons />
 
-            </OverlayLayers></>
+                    <ContactForm />
+                </div>
+            </OverlayLayers>
+        </section ></>
     );
 };
 
 const ContactForm = () => {
     return <form className={`
-        z-20
         w-full
         md:ml-12
         grid grid-col gap-4 justify-center`}>

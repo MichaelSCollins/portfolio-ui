@@ -12,7 +12,7 @@ const imageWidth = 600
 
 export default function About() {
   return (
-    <div className="p-1 font-[family-name:var(--font-geist-sans)]">
+    <div className="h-full font-[family-name:var(--font-geist-sans)]">
       <OverlayLayers
         anchor={OverlayAnchors.BIG_BOTTOM_RIGHT}
         src={imageSrc}
@@ -21,7 +21,7 @@ export default function About() {
             { top: '11%', right: '43%' }
         }]}
         width={imageWidth}>
-        <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2">
+        <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2 h-full ">
           <UpButton />
           <Hero {...{
             title, subtitle,
@@ -31,9 +31,6 @@ export default function About() {
 
         </div>
       </OverlayLayers>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-
-      </footer>
     </div>
   );
 }

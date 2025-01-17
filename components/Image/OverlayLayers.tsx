@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 
-import ImageOverlay from "./ImageCard";
+import ImageOverlay from "./OverlayImage";
 import SymbolStrategy, { SymbolId } from "./bg/symbols/SymbolStrategy";
 import { BgSymbol } from "@/interfaces/BgSymbol";
 import { OverlayAnchors } from "@/enums/OverlayDirection";
+import { twMerge } from "tw-merge";
 
 const defaults = {
     width: 600,
@@ -48,7 +49,9 @@ const OverlayLayers = ({ children,
     width = defaults.width,
     height = defaults.height,
     bgSymbols = defaults.bgSymbols
-}: OverlayLayersProps) => <main className="flex flex-col">
+}: OverlayLayersProps) => {
+    const twStyles = twMerge("h-full flex flex-col " + anchor === OverlayAnchors.BOTTOM_LEFT ? ' justify-between pb-72' : '')
+    return <main className={twStyles}>
         <BackgroundSymbolsLayer bgSymbols={bgSymbols} />
         {children}
         <ImageOverlay
@@ -61,5 +64,6 @@ const OverlayLayers = ({ children,
             }}
         />
     </main>
+}
 
 export default OverlayLayers;

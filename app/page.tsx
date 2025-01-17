@@ -12,22 +12,20 @@ const imageWidth = 600
 
 export default function Home() {
   return (
-    <div className="my-auto font-[family-name:var(--font-geist-sans)]">
+    <div className="w-full font-[family-name:var(--font-geist-sans)]">
       <OverlayLayers
         anchor={OverlayAnchors.BOTTOM_RIGHT}
         src={imageSrc}
         bgSymbols={[]}
         width={imageWidth}>
-        <div className="flex flex-col max-sm: ml-4 justify-center"><div className="flex w-full sm:ml-12">
-          <SymbolStrategy symbolId={SymbolId.Arrow} />
-          <Hero {...{ title, subtitle }} position={HeroPosition.TITLE} />
-        </div></div>
-
+        <div className="flex flex-col max-sm: ml-4 justify-center">
+          <div className="flex w-full sm:ml-12">
+            <SymbolStrategy symbolId={SymbolId.Arrow} />
+            <Hero {...{ title, subtitle }} position={HeroPosition.TITLE} />
+          </div>
+        </div>
         <DownButton />
       </OverlayLayers>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-
-      </footer>
     </div>
   );
 }

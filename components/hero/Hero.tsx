@@ -23,7 +23,7 @@ const Hero = ({
     className={`${position === HeroPosition.CONTACT
       ? " max-sm:flex max-sm:flex-col "
       : position === HeroPosition.ABOUT
-        ? " " : ""
+        ? " top-0" : ""
       }`}>
     <HeroTitle {...{ title, subtitle, description, position }} />
     {!hideButtons ? <HeroButtons /> : <></>}

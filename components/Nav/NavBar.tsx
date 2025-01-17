@@ -26,7 +26,7 @@ const Logo = () => <div className={styles.logo}>
 const NavMenu = () => {
     return <ul className={`flex justify-between 
         gap-8 mr-2 max-md:display-none max-md:opacity-0 max-md:z-0
-        z-50`}>
+        z-30`}>
         {Content?.nav.items?.map(NavItem)}
     </ul>
 }

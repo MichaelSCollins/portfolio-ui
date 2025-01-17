@@ -16,13 +16,13 @@ interface ImageCardProps {
 const ImageOverlay: React.FC<ImageCardProps> = ({ src, alt, anchor, width, height }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
     const twStyles = twMerge(`
-        ${anchor?.valueOf()} z-0 
+        ${anchor?.valueOf()} 
         ${imageLoaded ? '' : ''}
         ${anchor == OverlayAnchors.BOTTOM_RIGHT
-            ? ' max-sm:w-8/12 sm:w-1/2 absolute bottom-0  right-0'
+            ? ' max-sm:w-8/12 sm:w-1/2 absolute bottom-0 right-0'
             : ''}
         ${anchor == OverlayAnchors.BIG_BOTTOM_RIGHT
-            ? '  sm:w-8/12 bottom-0  absolute right-0'
+            ? 'sm:w-8/12 absolute right-0 bottom-0'
             : ''}
          ${anchor == OverlayAnchors.BOTTOM_LEFT
             ? ' sm:w-6/12 max-sm:w-11/12 absolute max-sm:left-5 sm:left-4 sm:top-32 max-sm:bottom-0'

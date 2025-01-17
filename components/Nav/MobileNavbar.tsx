@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { FaHome, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaInfoCircle } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const NavbarMobile = () => {
@@ -16,13 +16,14 @@ const NavbarMobile = () => {
     return (
         <div className=''>
             <MenuButton onClick={toggleMenu}>
-                <RxHamburgerMenu className="hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 z-30 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
+                <RxHamburgerMenu className="hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 z-50 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
             </MenuButton>
-            {isOpen && <Menu className="z-50 absolute top-20 right-5 transition duration-2500 ease-in-out" isOpen={isOpen}>
-                <MenuItem href="/"><FaHome /> Home</MenuItem>
+            {isOpen && <Menu className="absolute top-20 right-5 z-50 transition duration-2500 ease-in-out" isopen={isOpen ? 'true' : 'false'}>
+                <MenuItem className="z-60" href="/"><FaHome /> Home</MenuItem>
+                <MenuItem className="z-60" href="/experience"><FaInfoCircle /> Experience</MenuItem>
                 {/* <MenuItem href="#about"><FaInfoCircle /> About</MenuItem> */}
                 {/* <MenuItem href="#services"><FaServicestack /> Services</MenuItem> */}
-                <MenuItem href="/contact"><FaEnvelope /> Contact</MenuItem>
+                <MenuItem className="z-60" href="/contact"><FaEnvelope /> Contact</MenuItem>
             </Menu>}
         </div>
     );
@@ -35,7 +36,7 @@ const MenuButton = styled.button`
     cursor: pointer;
 `;
 
-const Menu = styled.div<{ isOpen: boolean }>`
+const Menu = styled.div<{ isopen: string }>`
     display: absolute;
     width: 80%;
     background-color: var(--secondary);
@@ -48,12 +49,12 @@ const Menu = styled.div<{ isOpen: boolean }>`
                 box-shadow 0.9s ease-in-out,
                 border 0.9s ease-in-out;
     overflow: hidden;
-    max-height: ${props => (props.isOpen ? '300px' : '0')};
-    opacity: ${props => (props.isOpen ? '1' : '0')};
-    transform: ${props => (props.isOpen ? 'scaleY(1)' : 'scaleY(0.5)')};
-    background-color: ${props => (props.isOpen ? 'var(--secondary)' : 'var(--background)')};
-    box-shadow: ${props => (props.isOpen ? '0 4px 8px rgba(0, 0, 0, 0.3)' : 'none')};
-    border: ${props => (props.isOpen ? '2px solid var(--primary)' : '2px solid transparent')};
+    max-height: ${props => (props.isopen == 'true' ? '300px' : '0')};
+    opacity: ${props => (props.isopen == 'true' ? '1' : '0')};
+    transform: ${props => (props.isopen == 'true' ? 'scaleY(1)' : 'scaleY(0.5)')};
+    background-color: ${props => (props.isopen == 'true' ? 'var(--secondary)' : 'var(--background)')};
+    box-shadow: ${props => (props.isopen == 'true' ? '0 4px 8px rgba(0, 0, 0, 0.3)' : 'none')};
+    border: ${props => (props.isopen == 'true' ? '2px solid var(--primary)' : '2px solid transparent')};
 `;
 
 const MenuItem = styled.a`
