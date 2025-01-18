@@ -16,7 +16,7 @@ const NavbarMobile = () => {
     return (
         <div className=''>
             <MenuButton onClick={toggleMenu}>
-                <RxHamburgerMenu className="hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
+                <RxHamburgerMenu className="z-50 hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
             </MenuButton>
             {isOpen && <Menu className="absolute top-20 right-5 transition duration-2500 ease-in-out" isopen={isOpen ? 'true' : 'false'}>
                 <MenuItem className="" href="/"><FaHome /> Home</MenuItem>
@@ -34,6 +34,7 @@ const MenuButton = styled.button`
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 70;
 `;
 
 const Menu = styled.div<{ isopen: string }>`

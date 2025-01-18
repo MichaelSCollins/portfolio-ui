@@ -12,7 +12,7 @@ const imageWidth = 600
 
 export default function About() {
   return (
-    <div className="h-full font-[family-name:var(--font-geist-sans)]">
+    <div className="h-full h-min-screen font-[family-name:var(--font-geist-sans)]">
       <OverlayLayers
         anchor={OverlayAnchors.BIG_BOTTOM_RIGHT}
         src={imageSrc}

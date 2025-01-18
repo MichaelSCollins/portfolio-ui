@@ -12,10 +12,10 @@ const position = HeroPosition.CONTACT
 const ContactPage = () => {
     return (
         <><section className={`
+            w-full
             flex 
-            justify-around
-            max-sm:px-9 max-sm:my-auto max-sm:mx-auto 
-            md:px-9 
+            justify-between
+            max-sm:my-auto max-sm:mx-1
             `}><OverlayLayers
                 bgSymbols={[
                     {
@@ -29,7 +29,7 @@ const ContactPage = () => {
                     }
                 ]}
                 anchor={OverlayAnchors.BOTTOM_LEFT} src="/img/page-content/blue-guy-2.png">
-                <div className="w-full flex max-sm:flex-col sm:justify-between">
+                <div className="w-screen flex max-sm:flex-col max-sm:pl-2 sm:px-8 sm:justify-between">
                     <Hero {...{ title, subtitle, position }} hideButtons />
 
                     <ContactForm />
