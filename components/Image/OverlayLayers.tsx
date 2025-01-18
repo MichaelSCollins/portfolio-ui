@@ -5,6 +5,7 @@ import SymbolStrategy, { SymbolId } from "./bg/symbols/SymbolStrategy";
 import { BgSymbol } from "@/interfaces/BgSymbol";
 import { OverlayAnchors } from "@/enums/OverlayDirection";
 import { twMerge } from "tw-merge";
+import BackgroundLayer from "./BackgroundLayer";
 
 const defaults = {
     width: 600,
@@ -33,15 +34,7 @@ interface OverlayLayersProps {
     bgSymbols?: BgSymbol[]
 }
 
-const BackgroundSymbolsLayer = ({ bgSymbols }: { bgSymbols: BgSymbol[] }) => (
-    <div id="bg-symbols" className="w-full absolute top-0">
-        {bgSymbols?.map((symbol: BgSymbol, index: number) => (
-            <div key={index} style={{ position: 'absolute', ...symbol.position }}>
-                <SymbolStrategy {...symbol} />
-            </div>
-        ))}
-    </div>
-);
+
 
 const OverlayLayers = ({ children,
     src = defaults.src,
@@ -52,7 +45,7 @@ const OverlayLayers = ({ children,
 }: OverlayLayersProps) => {
     const twStyles = twMerge("h-full flex flex-col " + anchor === OverlayAnchors.BOTTOM_LEFT ? ' justify-between pb-72' : '')
     return <main className={twStyles}>
-        <BackgroundSymbolsLayer bgSymbols={bgSymbols} />
+        <BackgroundLayer bgSymbols={bgSymbols} />
         {children}
         <ImageOverlay
             {...{

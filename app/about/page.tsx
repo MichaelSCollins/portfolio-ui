@@ -18,7 +18,10 @@ export default function About() {
         src={imageSrc}
         bgSymbols={[{
           symbolId: SymbolId.Keyboard, position:
-            { top: '11%', right: '43%' }
+            { top: '5%', left: '23%' }
+        }, {
+          symbolId: SymbolId.Mail, position:
+          { bottom: '50%', left: '43%' }
         }]}
         width={imageWidth}>
         <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2 h-full ">

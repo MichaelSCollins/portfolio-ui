@@ -13,18 +13,18 @@ const ContactPage = () => {
     return (
         <><section className={`
             flex 
-            justify-around w-full
+            justify-around
             max-sm:px-9 max-sm:my-auto max-sm:mx-auto 
             md:px-9 
             `}><OverlayLayers
                 bgSymbols={[
                     {
-                        symbolId: SymbolId.Keyboard, position: { top: '21%', right: '43%' }
+                        symbolId: SymbolId.Keyboard, position: { top: '9%', right: '43%' }
                     }, {
                         symbolId: SymbolId.Mail,
                         position: {
-                            bottom: '11%',
-                            right: '18%'
+                            bottom: '31%',
+                            right: '15%'
                         }
                     }
                 ]}
