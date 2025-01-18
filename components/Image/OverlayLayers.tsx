@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import ImageOverlay from "./OverlayImage";
-import SymbolStrategy, { SymbolId } from "./bg/symbols/SymbolStrategy";
+import { SymbolId } from "./bg/symbols/SymbolStrategy";
 import { BgSymbol } from "@/interfaces/BgSymbol";
 import { OverlayAnchors } from "@/enums/OverlayDirection";
 import { twMerge } from "tw-merge";
