@@ -6,7 +6,7 @@ import { BasicInfo, Screenshots, Achievements, Skills } from '@/app/company/[id]
 import ExperienceItem from '@/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
 
-function CompanyPage({ params: { id } }: { params: { id: string }}) {
+function CompanyPage({ params: { id } }: any) {
     const experience: ExperienceItem = experiences[+id]
     console.log(experience)
     return (
