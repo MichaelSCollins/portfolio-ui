@@ -12,7 +12,8 @@ function CompanyPage({ params }: any) {
     return (
         <div className='sm:px-24 max-sm:px-6'>
             <div className={'flex flex-col'}>
-                <Link className='mt-8 text-secondary flex text-sm *:hover:text-primary' href="/experience">
+                <Link className='mt-8 text-secondary flex text-sm *:hover:text-primary' 
+                    href="/experience">
                     <RiArrowDropLeftFill className="text-foreground text-3xl" /> 
                     <p className="pt-1">Back to Experience</p>
                 </Link>
