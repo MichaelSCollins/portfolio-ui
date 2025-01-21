@@ -5,7 +5,8 @@ import img from '@/public/img/page-content/blue-guy-4.webp'
 import { BasicInfo, Screenshots, Achievements, Skills } from '@/app/company/[id]/sections';
 import ExperienceItem from '@/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
-// @typescript-eslint/no-explicit-any
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CompanyPage({ params: { id } }: any) {
     const experience: ExperienceItem = experiences[+id]
     console.log(experience)
