@@ -6,8 +6,8 @@ import { BasicInfo, Screenshots, Achievements, Skills } from '@/app/company/[id]
 import ExperienceItem from '@/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
 
-function CompanyPage({ params }: any) {
-    const experience: ExperienceItem = experiences[params.id]
+function CompanyPage({ params: { id } }: { params: { id: number }}) {
+    const experience: ExperienceItem = experiences[id]
     console.log(experience)
     return (
         <div className='sm:px-24 max-sm:px-6'>

@@ -52,7 +52,7 @@ const getData = (breakdownData: number[]) => ({
         plugins: {
             tooltip: {
                 callbacks: {
-                    label: function (tooltipItem: any) {
+                    label: function (tooltipItem: { dataset: { label: string }, raw: string }) {
                         const label = tooltipItem.dataset.label;
                         const value = tooltipItem.raw;
 
