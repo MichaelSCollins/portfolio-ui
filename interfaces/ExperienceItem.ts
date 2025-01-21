@@ -1,3 +1,5 @@
+import ImageData from "./ImageItem"
+
 interface ExperienceItem {
     title: string
     // role: string
@@ -10,7 +12,7 @@ interface ExperienceItem {
     }
     skillBreakdown?: number[]
     achievements?: string[]
-    screenshots?: string[]
+    screenshots?: ImageData[]
 }
 
 export default ExperienceItem

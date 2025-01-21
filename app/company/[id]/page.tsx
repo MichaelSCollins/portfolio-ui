@@ -1,11 +1,11 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { RiArrowDropLeftFill } from "react-icons/ri"; 
+import img from '@/public/img/page-content/blue-guy-4.webp'
 import { BasicInfo, Screenshots, Achievements, Skills } from '@/app/company/[id]/sections';
 import ExperienceItem from '@/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
-import Image from 'next/image';
-import PieChart from '@/app/company/[id]/sections/chart'
-import img from '@/public/img/page-content/blue-guy-4.webp'
-import Link from 'next/link';
+
 function CompanyPage({ params }: any) {
     const experience: ExperienceItem = experiences[params.id]
     console.log(experience)
