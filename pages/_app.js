@@ -4,7 +4,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 function MyApp({ Component, pageProps, router })
 {
     return (
-        <AnimatePresence>
+        <AnimatePresence
+            mode="wait" initial={false}
+        >
             <motion.div
                 key={router.route}
                 initial="initialState"

@@ -34,3 +34,4 @@ export default () => <svg width="153" height="116" viewBox="0 0 153 116" fill="n
     <path d="M26.4089 75.8738C30.8397 76.7702 34.6214 78.1424 38.5068 79.6946C41.88 81.0422 45.8377 81.5183 49.1955 82.8146C51.586 83.7374 53.8571 86.2012 55.4931 87.8031C56.0382 88.3369 56.4294 88.8497 56.7809 89.4807C57.5872 90.9285 57.0479 87.2706 56.9971 86.8687" stroke="#00ADB5" strokeOpacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
     <path d="M75.0515 42.4709C76.1839 43.4109 80.5474 48.8118 80.1484 44.4296" stroke="#00ADB5" strokeOpacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
 </svg>
+

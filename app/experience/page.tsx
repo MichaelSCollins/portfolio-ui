@@ -13,7 +13,7 @@ const Experience = () => {
       <div className="mx-3 sm:mx-6">
         <div className="cards-container py-4 my-4 sm:grid-cols-3 px-4 sm:p1">
           {experienceData.map((exp, index) => (
-            <Link href="#" className="h-full" key={index}>
+            <Link href={"/company/" + index} className="h-full" key={index}>
               <div className="card h-full shadow cursor-pointer hover:bg-secondary shadow-xl bg-secondary/35 text-foreground flex flex-col  border border-secondary/50">
                 {exp.img &&
                   <div className={

@@ -7,7 +7,7 @@ const UpButton = () => <Link href="/" className={`
     p-4  
     bg-secondary text-foreground 
     cursor-pointer animate-bounce hover:animate-pulse 
-    z-50`}>
+    `}>
     <RxArrowUp className="text-2xl max-sm:text-md" />
 </Link>
 

@@ -111,7 +111,7 @@ const Experience = () => {
         }
 
         .heading {
-          text-align: center;
+          text-align: left;
           margin-bottom: 40px;
         }
 

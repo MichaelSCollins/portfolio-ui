@@ -1,7 +1,7 @@
 import { MdSend } from "react-icons/md";
 import Hero from '@/components/hero/Hero';
-import { SymbolId } from '@/components/Image/bg/symbols/SymbolStrategy';
-import OverlayLayers from '@/components/Image/OverlayLayers';
+import { SymbolId } from '@/components/Layers/bg/symbols/SymbolStrategy';
+import OverlayLayers from '@/components/Layers/OverlayLayers';
 import HeroPosition from '@/enums/HeroPosition';
 import { OverlayAnchors } from '@/enums/OverlayDirection';
 

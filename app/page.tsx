@@ -1,7 +1,7 @@
-import OverlayLayers from "@/components/Image/OverlayLayers";
+import OverlayLayers from "@/components/Layers/OverlayLayers";
 import Hero from "@/components/hero/Hero";
 import DownButton from "@/components/controls/DownButton";
-import SymbolStrategy, { SymbolId } from "@/components/Image/bg/symbols/SymbolStrategy";
+import SymbolStrategy, { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 import HeroPosition from "@/enums/HeroPosition";
 import { OverlayAnchors } from "@/enums/OverlayDirection";
 

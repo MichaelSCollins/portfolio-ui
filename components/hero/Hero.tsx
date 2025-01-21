@@ -21,9 +21,9 @@ const Hero = ({
   const clippedDesc = description?.substring(0, maxLength)
   return <HeroContainer
     className={`${position === HeroPosition.CONTACT
-      ? " max-sm:flex max-sm:flex-col "
+      ? " max-sm:flex max-sm:flex-col w-full max-sm:pl-2 "
       : position === HeroPosition.ABOUT
-        ? " top-0" : ""
+        ? " " : ""
       }`}>
     <HeroTitle {...{ title, subtitle, description, position }} />
     {!hideButtons ? <HeroButtons /> : <></>}

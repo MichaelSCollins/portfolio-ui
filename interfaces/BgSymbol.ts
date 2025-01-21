@@ -1,4 +1,4 @@
-import { SymbolId } from "@/components/Image/bg/symbols/SymbolStrategy";
+import { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 
 export interface BgSymbol {
     symbolId: SymbolId;

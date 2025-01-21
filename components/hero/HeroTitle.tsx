@@ -23,6 +23,7 @@ const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, position }) => {
     return (
         <section
             className={`
+                w-full
                 flex flex-col
                 left-0 items-start
                 lg:mb-4

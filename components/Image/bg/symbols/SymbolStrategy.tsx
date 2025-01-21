@@ -1,5 +1,5 @@
 import { twMerge } from "tw-merge"
-import SketchedArrowSymbol from "./SkechedArrow"
+import SketchedArrowSymbol from "./SketchedArrow"
 import SketchedKeyboard from "./SketchedKeyboard"
 import SketchedMailSymbol from "./SketchedMail"
 

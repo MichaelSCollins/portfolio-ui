@@ -10,8 +10,17 @@ export default {
   ],
   plugins: [
     plugin(function ({ addUtilities }) {
-      const overlayUtilities: CSSRuleObject = {};
-      overlayUtilities['.overlay-right'] = {
+      const cssRulesObj: CSSRuleObject = {};
+      cssRulesObj['.card-container'] = {
+        display: 'grid',
+        gap: '20px'
+      }
+      cssRulesObj['.card'] = {
+        borderRadius: '8px',
+        padding: '20px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+      }
+      cssRulesObj['.overlay-right'] = {
         position: 'absolute',
         right: '0',
         bottom: '0',
@@ -19,7 +28,7 @@ export default {
         justifyContent: 'right',
         alignItems: 'right'
       }
-      overlayUtilities['.big-overlay-right'] = {
+      cssRulesObj['.big-overlay-right'] = {
         position: 'absolute',
         right: '0',
         bottom: '0',
@@ -28,7 +37,17 @@ export default {
         justifyContent: 'right',
         alignItems: 'right'
       }
-      overlayUtilities['.overlay-left'] = {
+
+      cssRulesObj['.big-overlay-right'] = {
+        position: 'absolute',
+        right: '0',
+        bottom: '0',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'right',
+        alignItems: 'right'
+      }
+      cssRulesObj['.overlay-left'] = {
         position: 'absolute',
         left: '2rem',
         width: '50%',
@@ -37,7 +56,7 @@ export default {
         justifyContent: 'left',
         alignItems: 'left',
       }
-      addUtilities(overlayUtilities);
+      addUtilities(cssRulesObj);
     })
   ],
   theme: {

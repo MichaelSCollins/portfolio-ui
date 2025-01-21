@@ -1,5 +1,5 @@
-import OverlayLayers from "@/components/Image/OverlayLayers";
-import { SymbolId } from "@/components/Image/bg/symbols/SymbolStrategy";
+import OverlayLayers from "@/components/Layers/OverlayLayers";
+import { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 import UpButton from "@/components/controls/UpButton";
 import Hero from "@/components/hero/Hero"
 import HeroPosition from "@/enums/HeroPosition";
@@ -18,13 +18,13 @@ export default function About() {
         src={imageSrc}
         bgSymbols={[{
           symbolId: SymbolId.Keyboard, position:
-            { top: '5%', left: '23%' }
+            { top: '31%', left: '10%' }
         }, {
           symbolId: SymbolId.Mail, position:
-          { bottom: '50%', left: '43%' }
+            { bottom: '48%', left: '33%' }
         }]}
         width={imageWidth}>
-        <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2 h-full ">
+        <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2">
           <UpButton />
           <Hero {...{
             title, subtitle,
@@ -33,7 +33,7 @@ export default function About() {
             position={HeroPosition.ABOUT} hideButtons />
 
         </div>
-      </OverlayLayers>
-    </div>
+      </OverlayLayers >
+    </div >
   );
 }
