@@ -43,7 +43,9 @@ const OverlayLayers = ({ children,
     height = defaults.height,
     bgSymbols = defaults.bgSymbols
 }: OverlayLayersProps) => {
-    const twStyles = twMerge("h-full h-min-screen flex flex-col " + anchor === OverlayAnchors.BOTTOM_LEFT ? ' justify-between pb-72' : '')
+    const twStyles = twMerge("h-full h-min-screen flex flex-col " 
+        + anchor === OverlayAnchors.BOTTOM_LEFT 
+            ? ' justify-between pb-72' : '')
     return <main className={twStyles}>
         <BackgroundLayer bgSymbols={bgSymbols} />
         {children}
