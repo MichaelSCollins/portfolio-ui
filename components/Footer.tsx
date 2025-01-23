@@ -8,17 +8,17 @@ const Footer: FC = () => {
     return (
         // <>
         // <About /><ContactPage />
-        <footer className="px-20 py-6 mt-8 bg-secondary/20 w-full flex flex-col ">
+        <footer className="px-20 py-6 mt-8 bg-secondary/20 w-full flex flex-col">
             <div className="flex flex-col w-full justify-center ">
                 {/* Contact Info */}
-                <div className="flex max-sm:flex-col max-sm:mx- w-full justify-center gap-8 mb-6 text-center md:text-center">
+                <div className="flex max-sm:flex-col w-full justify-center gap-8 mb-6 text-center md:text-center">
                     <p className="text-sm flex"><FaPhone className="text-lg mr-1" /> <span className="flex flex-col justify-center">(562) 637-6910</span></p>
                     <p className="text-sm flex"><AiOutlineMail className="text-lg mr-1" /> <span className="flex flex-col justify-center">codebigthings@gmail.com</span></p>
                     <p className="text-sm flex"><CiLocationOn className="text-lg mr-1" /> <span className="flex flex-col justify-center">Long Beach, CA</span></p>
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex  w-full max-sm:mb-6 max-sm:justify-left space-x-8">
+                <div className="flex w-full max-sm:mb-6 max-sm:justify-left sm:justify-center space-x-8">
                     <a
                         href="https://github.com/MichaelSCollins"
                         target="_blank"
@@ -45,7 +45,7 @@ const Footer: FC = () => {
                     </a>
                 </div>
             </div>
-            <p className="text-right max-sm:text-left sm:pb-6 sm:mr-24">Terms of Service - Privacy Policy</p>
+            <p className="sm:text-center max-sm:text-left sm:justify-center sm:m-6 ">Terms of Service - Privacy Policy</p>
         </footer>
         // </>
     );
