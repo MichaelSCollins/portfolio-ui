@@ -1,35 +1,34 @@
-import HeroPosition from "@/enums/HeroPosition";
+import PortfolioPage from "@/enums/PortfolioPage";
 import HeroButtons from "./HeroButtons";
-import HeroContainer from "./HeroContainer";
 import HeroTitle from "./HeroTitle";
+import useClassBuilder from "@/hooks/useClassBuilder";
+import TwBuilderType from "@/enums/TailwindBuilderType";
 // import Link from "next/link";
-
 const Hero = ({
   title,
   subtitle,
   description,
-  position,
+  page,
   hideButtons
 }: {
   title: string,
   subtitle?: string,
   description?: string,
-  position?: HeroPosition,
+  page?: PortfolioPage,
   hideButtons?: boolean
 }) => {
   const maxLength = 250
   const clippedDesc = description?.substring(0, maxLength)
-  return <HeroContainer
-    className={`${position === HeroPosition.CONTACT
-      ? " max-sm:flex max-sm:flex-col w-full max-sm:pl-2 "
-      : position === HeroPosition.ABOUT
-        ? "" : ""
-      }`}>
-    <HeroTitle {...{ title, subtitle, description, position }} />
-    {!hideButtons ? <HeroButtons /> : <></>}
+  const classes = useClassBuilder(TwBuilderType.Hero)
+    .setPage(page)
+    .build()
+  
+  return <section className={classes.container}>
+    <HeroTitle {...{ title, subtitle, description, page, classes }} />
+    {!hideButtons && <HeroButtons />}
     {description ? <div className="max-sm:w-3/4 w-2/5 cursor-pointer">
       <p className="text-clip text-xs">{clippedDesc} <a>... [Read More]</a></p>
     </div> : <></>}
-  </HeroContainer>
+  </section>
 }
 export default Hero;

@@ -17,7 +17,7 @@
   },
   "header": {
     "name": "MIKE COLLINS",
-    "title": "Lead Developer",
+    "title": "Sr Developer",
     "buttonText": "Learn More"
   },
   "overlay": {
@@ -26,6 +26,23 @@
   "contact": {
     "title": "Contact Us",
     "description": "Feel free to reach out to us for any inquiries.",
-    "buttonText": "Send Message"
+    "buttonText": "Send Message",
+    "form": {
+      "action": "/message",
+      "method": "post",
+      "inputs": [{
+        "label": "Name",
+        "placeholder": "Your Name",
+        "type": "name"
+      }, {
+        "label": "email",
+        "placeholder": "youremail@host.com",
+        "type": "email"
+      }, {
+        "label": "Message",
+        "placeholder": "What's on your mind?",
+        "type": "textarea"
+      }]
+    }
   }
 }

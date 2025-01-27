@@ -2,37 +2,41 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { twMerge } from 'tw-merge';
-import { OverlayAnchors } from '@/enums/OverlayDirection';
 
-interface ImageCardProps {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    anchor?: OverlayAnchors;
+import OverlayTwClassBuilder from '../../styles/OverlayTwBuilder';
+import PortfolioPage from '@/enums/PortfolioPage';
+import FadeInImage from '@/interfaces/FadeInImage';
+import useClassBuilder from '@/hooks/useClassBuilder';
+import TwBuilderType from '@/enums/TailwindBuilderType';
+
+interface OverlayImageProps {
+    image: FadeInImage;
+    page?: PortfolioPage;
 }
-
-const ImageOverlay: React.FC<ImageCardProps> = ({ src, alt, anchor, width, height }) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
-    const twStyles = twMerge(`
-        ${anchor?.valueOf()} 
-        ${imageLoaded ? '' : ''}
-        ${anchor == OverlayAnchors.BOTTOM_RIGHT
-            ? ' max-sm:w-8/12 sm:w-1/2 absolute bottom-0 right-0'
-            : ''}
-        ${anchor == OverlayAnchors.BIG_BOTTOM_RIGHT
-            ? 'sm:w-6/12 absolute right-0 bottom-0'
-            : ''}
-         ${anchor == OverlayAnchors.BOTTOM_LEFT
-            ? ' sm:w-6/12 max-sm:w-11/12 absolute max-sm:left-5 sm:left-4 sm:top-32 max-sm:bottom-0'
-            : ''
-        } `);
-    return <Image src={src}
-        onLoad={() => setImageLoaded(true)}
-        alt={alt}
-        className={twStyles}
-        width={width} height={height} />
+const ImageOverlay = ({ 
+        image, 
+        page 
+    }: OverlayImageProps) => {
+    const [ loaded, setLoaded ] = useState(false)
+    const classBuilder = useClassBuilder(TwBuilderType.Overlay)
+        .setPage(page)
+    const fadeInLoadingAnimation = {
+        transition: 'opacity',
+        transitionDuration: '.5s',
+        opacity: loaded ? '100' : '0',
+    }
+    const classes = classBuilder?.build()
+    console.log(classes?.container)
+    return <div className={classes?.container} style={fadeInLoadingAnimation}>
+        <Image 
+            placeholder={'empty'}
+            src={image.src}
+            fill
+            alt={image.alt}
+            onLoad={(e) => {
+                classBuilder?.setLoaded(true)
+                setLoaded(true)
+            }} /></div>
 };
 
 export default ImageOverlay;

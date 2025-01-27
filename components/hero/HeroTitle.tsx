@@ -1,27 +1,17 @@
-import HeroPosition from '@/enums/HeroPosition';
+import PortfolioPage from '@/enums/PortfolioPage';
+import TwBuilderType from '@/enums/TailwindBuilderType';
+import useClassBuilder from '@/hooks/useClassBuilder';
 import React from 'react';
 import { twMerge } from 'tw-merge';
 
-interface HeroTitleProps { title: string, subtitle?: string, position?: HeroPosition }
-const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, position }) => {
-    const fontSizes = {
-        title: "md:text-hlg max-md:text-hsm",
-        subtitle: "md:text-hmd max-md:text-hxs"
-    }
-    if (position === HeroPosition.CONTACT)
-    {
-        fontSizes.title = "md:text-hmd max-md:text-hsm";
-        fontSizes.subtitle = "md:text-hmd max-md:text-hxs";
-    }
-    else if (position === HeroPosition.ABOUT)
-    {
-        fontSizes.title = "md:text-hsm max-md:text-hxs";
-        fontSizes.subtitle = "md:text-h2xs max-md:text-3xs";
-    }
-    const twTitle = twMerge(fontSizes.title + ' text-foreground')
-    const twSubtitle = twMerge(fontSizes.subtitle + ' text-primary')
+interface HeroTitleProps { title: string, subtitle?: string, page?: PortfolioPage, classes: { 
+    title: string, subtitle: string, container: string, lineHeight: string
+} }
+const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, page, classes }) => {
+    const classBuilder = useClassBuilder(TwBuilderType.Hero)
+        .setPage(page)
     return (
-        <section
+        <div
             className={`
                 w-full
                 flex flex-col
@@ -31,18 +21,14 @@ const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle, position }) => {
                 text-weight-bold
                 text-nowrap
             `}
-            style={{
-                lineHeight: position === HeroPosition.ABOUT
-                    ? "2.5rem"
-                    : "3.25rem"
-            }}>
-            <span className={twTitle}>
+            style={{ lineHeight: classes.lineHeight}}>
+            <section className={classes.title}>
                 <b >{title}</b>
-            </span>
-            <span className={twSubtitle}>
+            </section>
+            <section className={classes.subtitle}>
                 <b >{subtitle}</b>
-            </span>
-        </section>
+            </section>
+        </div>
     );
 };
 
