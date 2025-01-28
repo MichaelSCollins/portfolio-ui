@@ -14,8 +14,6 @@ enum InputTypes {
     textarea = 'textarea'
 }
 
-const title = "Got a project in";
-const subtitle = "mind?";
 const page = PortfolioPage.CONTACT;
 
 const ContactPage = () => {
@@ -52,11 +50,9 @@ const ContactPage = () => {
 };
 
 const ContactForm = () => {
-    const { getObj, getString } = useCMS();
+    const { getObj } = useCMS();
     const inputs = getObj<any[]>('contact.form.inputs');
     const fullWidthInputs = getObj<any[]>('contact.form.fullWidthInputs');
-    const title = getString('contact.title');
-    const subtitle = getObj<any>('contact.subtitle');
     return (
         <form
             className={`

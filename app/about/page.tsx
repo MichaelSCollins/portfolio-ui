@@ -9,7 +9,6 @@ import FadeInImage from "@/interfaces/FadeInImage";
 
 const title = 'Hire a developer'
 const subtitle = 'that can take the lead'
-const imageSrc = "/img/bg/image.png"
 const imageWidth = 600
 const imageHeight = 750
 

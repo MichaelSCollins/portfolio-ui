@@ -25,7 +25,7 @@ const Hero = ({
     .build()
   
   return <div className={classes.container}>
-    <HeroTitle {...{ title, subtitle, description, page, classes }} />
+    <HeroTitle {...{ title, subtitle, description, page }} />
     {description && <section className="max-sm:w-3/4 w-2/5 cursor-pointer">
       <p className="text-clip text-xs">{clippedDesc} <a>... [Read More]</a></p>
     </section>}
