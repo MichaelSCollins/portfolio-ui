@@ -3,6 +3,17 @@ import experienceData from "@/.fake/experience"
 import Image from "next/image";
 import Link from 'next/link'
 import { useState } from "react";
+interface ExperienceData {
+  title: string;
+  img: {
+      src: string;
+  };
+  description: string;
+  duration: string;
+  skills?: string[];
+  skillBreakdown: number[];
+  achievements: string[];
+}
 const Experience = () => {
   return (
     <div className="">
@@ -60,7 +71,8 @@ const Experience = () => {
   );
 };
 
-const ExperienceCard = ({ experience, index }: any) => {
+const ExperienceCard = ({ experience, index }: 
+  { experience: ExperienceData, index: number }) => {
   const [loaded, setLoaded] = useState(false)
   const fadeInLoadingAnimation = {
       transition: 'opacity',

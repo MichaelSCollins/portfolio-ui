@@ -25,7 +25,7 @@ const ImageOverlay = ({
         const [classes, setClasses] = useState(classBuilder?.build())
         const fadeInLoadingAnimation = {
             transition: 'opacity',
-            transitionDuration: '.5s',
+            transitionDuration: '1s',
             opacity: loaded ? '100' : '0',
         }
         return <div className={classes?.container} style={fadeInLoadingAnimation}>
@@ -34,7 +34,7 @@ const ImageOverlay = ({
                 placeholder={'empty'}
                 src={image.src}
                 alt={image.alt}
-                onLoad={(e) => {
+                onLoad={() => {
                     setClasses(classBuilder
                         .setLoaded(true)
                         .build()

@@ -48,11 +48,11 @@ const ContactPage = () => {
         </section>
     );
 };
-
+export interface FormInput {type: InputTypes, label: string, placeholder: string}
 const ContactForm = () => {
     const { getObj } = useCMS();
-    const inputs = getObj<any[]>('contact.form.inputs');
-    const fullWidthInputs = getObj<any[]>('contact.form.fullWidthInputs');
+    const inputs = getObj<FormInput[]>('contact.form.inputs');
+    const fullWidthInputs = getObj<FormInput[]>('contact.form.fullWidthInputs');
     return (
         <form
             className={`
