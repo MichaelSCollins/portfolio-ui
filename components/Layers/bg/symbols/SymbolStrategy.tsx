@@ -9,7 +9,9 @@ export enum SymbolId {
     Mail = "mail"
 }
 
-const SymbolStrategy = ({ symbolId, position }: { symbolId: SymbolId | string, position?: {} }) => {
+const SymbolStrategy = ({ symbolId, position }: { symbolId: SymbolId | string, position?: {
+    top: number | string, left: number | string, bottom: number | string, right?: number | string
+} }) => {
     let positionStyles = ''
     if (!position)
     {
