@@ -6,7 +6,7 @@ import SketchedMailSymbol from "./SketchedMail"
 export enum SymbolId {
     Arrow = 'arrow',
     Keyboard = 'keyboard',
-    Mail = "Mail"
+    Mail = "mail"
 }
 
 const SymbolStrategy = ({ symbolId, position }: { symbolId: SymbolId, position?: object }) => {

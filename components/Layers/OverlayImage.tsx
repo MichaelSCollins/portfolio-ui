@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import OverlayTwClassBuilder from '../../styles/OverlayTwBuilder';
 import PortfolioPage from '@/enums/PortfolioPage';
 import FadeInImage from '@/interfaces/FadeInImage';
 import useClassBuilder from '@/hooks/useClassBuilder';
-import TwBuilderType from '@/enums/TailwindBuilderType';
+import ClassBuilderType from '@/enums/TailwindBuilderType';
+import OverlayTwClassBuilder from '@/styles/OverlayImageClassBuilder';
 
+let classes;
 interface OverlayImageProps {
     image: FadeInImage;
     page?: PortfolioPage;
@@ -17,26 +18,32 @@ const ImageOverlay = ({
         image, 
         page 
     }: OverlayImageProps) => {
-    const [ loaded, setLoaded ] = useState(false)
-    const classBuilder = useClassBuilder(TwBuilderType.Overlay)
-        .setPage(page)
-    const fadeInLoadingAnimation = {
-        transition: 'opacity',
-        transitionDuration: '.5s',
-        opacity: loaded ? '100' : '0',
-    }
-    const classes = classBuilder?.build()
-    console.log(classes?.container)
-    return <div className={classes?.container} style={fadeInLoadingAnimation}>
-        <Image 
-            placeholder={'empty'}
-            src={image.src}
-            fill
-            alt={image.alt}
-            onLoad={(e) => {
-                classBuilder?.setLoaded(true)
-                setLoaded(true)
-            }} /></div>
+        const classBuilder = useClassBuilder<OverlayTwClassBuilder>(
+            ClassBuilderType.OverlayImage
+        ).setAnchor(image.anchor)
+            .setPage(page)
+        const [ loaded, setLoaded ] = useState(false)
+        const [classes, setClasses] = useState(classBuilder?.build())
+        const fadeInLoadingAnimation = {
+            transition: 'opacity',
+            transitionDuration: '.5s',
+            opacity: loaded ? '100' : '0',
+        }
+        console.log({ classes })
+        return <div className={classes?.container} style={fadeInLoadingAnimation}>
+            <Image 
+                fill
+                placeholder={'empty'}
+                src={image.src}
+                alt={image.alt}
+                onLoad={(e) => {
+                    setClasses(classBuilder
+                        .setLoaded(true)
+                        .build()
+                    )
+                    setLoaded(true)
+                }} />
+        </div>
 };
 
 export default ImageOverlay;

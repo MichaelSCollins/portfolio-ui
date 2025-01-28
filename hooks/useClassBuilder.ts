@@ -1,25 +1,24 @@
 import ClassBuilderType from "@/enums/TailwindBuilderType";
-import HeroTailwindBuilder from "@/styles/HeroTwBuilder";
-import OverlayTwClassBuilder from "@/styles/OverlayTwBuilder";
+import HeroClassBuilder from "@/styles/HeroClassBuilder";
+import OverlayImageClassBuilder from "@/styles/OverlayImageClassBuilder";
 import ClassBuilder from "@/styles/TailwindBuilder";
 
-
-let classBuilders = new Map<
-ClassBuilderType, ClassBuilder>()
-const useClassBuilder = (builderType: ClassBuilderType) => {
+// Singleton Class Builder
+let classBuilders = new Map<ClassBuilderType, ClassBuilder>()
+const useClassBuilder = <T>(builderType: ClassBuilderType): T => {
     let builder = classBuilders.get(builderType)
     if(!builder) {
         switch(builderType) {
             case ClassBuilderType.Hero:
-                builder = new HeroTailwindBuilder()
+                builder = new HeroClassBuilder()
                 break
-            case ClassBuilderType.Overlay:
-                builder = new OverlayTwClassBuilder()
+            case ClassBuilderType.OverlayImage:
+                builder = new OverlayImageClassBuilder()
                 break
         }
         classBuilders.set(builderType, builder)
     }
-    return builder
+    return builder as T
 }
 
 export default useClassBuilder

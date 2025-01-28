@@ -1,5 +1,5 @@
 enum TwBuilderType {
     Hero,
-    Overlay
+    OverlayImage
 }
 export default TwBuilderType

@@ -3,6 +3,7 @@ import HeroButtons from "./HeroButtons";
 import HeroTitle from "./HeroTitle";
 import useClassBuilder from "@/hooks/useClassBuilder";
 import TwBuilderType from "@/enums/TailwindBuilderType";
+import HeroClassBuilder from "@/styles/HeroClassBuilder";
 // import Link from "next/link";
 const Hero = ({
   title,
@@ -19,16 +20,16 @@ const Hero = ({
 }) => {
   const maxLength = 250
   const clippedDesc = description?.substring(0, maxLength)
-  const classes = useClassBuilder(TwBuilderType.Hero)
+  const classes = useClassBuilder<HeroClassBuilder>(TwBuilderType.Hero)
     .setPage(page)
     .build()
   
-  return <section className={classes.container}>
+  return <div className={classes.container}>
     <HeroTitle {...{ title, subtitle, description, page, classes }} />
-    {!hideButtons && <HeroButtons />}
-    {description ? <div className="max-sm:w-3/4 w-2/5 cursor-pointer">
+    {description && <section className="max-sm:w-3/4 w-2/5 cursor-pointer">
       <p className="text-clip text-xs">{clippedDesc} <a>... [Read More]</a></p>
-    </div> : <></>}
-  </section>
+    </section>}
+    {!hideButtons && <HeroButtons />}
+  </div>
 }
 export default Hero;

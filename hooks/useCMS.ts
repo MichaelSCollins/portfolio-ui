@@ -10,7 +10,7 @@ export const useCMS = () => {
             result = result[key];
             if (result === undefined)
             {
-                console.warn(`String not found for path: ${path}`);
+                console.warn(`String not found for content: ${path}`);
                 return null;
             }
         }
@@ -27,7 +27,7 @@ export const useCMS = () => {
             result = result[key];
             if (result === undefined)
             {
-                console.warn(`String not found for path: ${path}`);
+                console.warn(`Obj not found for content: ${path}`);
                 return '';
             }
         }

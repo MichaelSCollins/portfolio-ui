@@ -21,7 +21,7 @@ const OverlayLayers = ({
     page
 }: OverlayLayersProps) => {
     return <main className={"flex flex-col h-full"}>
-        <div className={`h-full w-full border absolute bottom-0 right-0`}>
+        <div className={`h-full w-full absolute bottom-0 right-0`}>
             <BackgroundLayer bgSymbols={bgSymbols || []} />
             <ImageOverlay
                 {...{

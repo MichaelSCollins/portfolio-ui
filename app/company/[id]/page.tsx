@@ -11,7 +11,7 @@ function CompanyPage({ params: { id } }: any) {
     const experience: ExperienceItem = experiences[+id]
     console.log(experience)
     return (
-        <div className='sm:px-24 max-sm:px-6'>
+        <div className='sm:px-12 max-sm:px-6'>
             <div className={'flex flex-col'}>
                 <Link className='mt-8 text-secondary flex text-sm *:hover:text-primary' 
                     href="/experience">

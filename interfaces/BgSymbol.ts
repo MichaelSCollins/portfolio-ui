@@ -1,6 +1,6 @@
 import { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 
 export interface BgSymbol {
-    symbolId: SymbolId;
+    symbolId: SymbolId | string;
     position: object;
 }

@@ -24,21 +24,23 @@
     "alt": "Overlay-Image"
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "Got a project in",
+    "subtitle": "mind?",
     "description": "Feel free to reach out to us for any inquiries.",
     "buttonText": "Send Message",
     "form": {
       "action": "/message",
       "method": "post",
       "inputs": [{
-        "label": "Name",
-        "placeholder": "Your Name",
+        "label": "Your Name",
+        "placeholder": "Name",
         "type": "name"
       }, {
-        "label": "email",
+        "label": "Email",
         "placeholder": "youremail@host.com",
         "type": "email"
-      }, {
+      }],
+      "fullWidthInputs": [{
         "label": "Message",
         "placeholder": "What's on your mind?",
         "type": "textarea"

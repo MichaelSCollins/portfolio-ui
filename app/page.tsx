@@ -25,7 +25,7 @@ export default function Home() {
       <OverlayLayers
         image={image}
         bgSymbols={[]}>
-        <div className="flex flex-col w-full max-sm:ml-4 justify-center">
+        <div className="flex flex-col w-full max-sm:pl-4 justify-center">
           <div className="flex w-full sm:ml-12">
             <SymbolStrategy symbolId={SymbolId.Arrow} />
             <Hero {...{ title, subtitle }} page={PortfolioPage.TITLE} />
