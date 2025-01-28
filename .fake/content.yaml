@@ -2,13 +2,13 @@ nav:
   items:
     - name: "Home"
       link: "/"
-    - name: "Experience"
+    - name: "Experiednce"
       link: "/Experience"
     - name: "Contact"
       link: "/contact"
 header:
   name: "MIKE COLLINS"
-  title: "Lead Developer"
+  title: "React/Kotlin Developer"
   buttonText: "Learn More"
 overlay:
   alt: "Overlay-Image"

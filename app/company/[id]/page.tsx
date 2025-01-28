@@ -11,7 +11,7 @@ function CompanyPage({ params: { id } }: any) {
     const experience: ExperienceItem = experiences[+id]
     console.log(experience)
     return (
-        <div className='sm:px-24 max-sm:px-6'>
+        <div className='sm:px-12 max-sm:px-6'>
             <div className={'flex flex-col'}>
                 <Link className='mt-8 text-secondary flex text-sm *:hover:text-primary' 
                     href="/experience">
@@ -26,11 +26,12 @@ function CompanyPage({ params: { id } }: any) {
                             && <Screenshots images={experience.screenshots || []} />}
                     </div>
 
-                    <Skills skills={experience.skillBreakdown ?? []} />
                     <div className='flex max-sm:flex-col'>
                         <Image width={300} height={300} src={img.src} alt={''} className='h-2/3' />
                         <Achievements achievements={experience.achievements || []} />
                     </div>
+                    <Skills skills={experience.skillBreakdown ?? []} />
+                    
                     {/* <PieChart /> */}
                 </div>
             </div>

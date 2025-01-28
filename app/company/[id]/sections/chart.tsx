@@ -20,20 +20,22 @@ const StackedBarChart = ({ breakdownData }: { breakdownData: number[] }) => {
     const data = getData(breakdownData)
     return (
         <div
-            className="text-foreground duration-600  rounded-lg justify-end shadow-md "
+            className="text-foreground mx-auto duration-1000 sm:p-12 max-sm:p-2 rounded-lg justify-end shadow-md "
             style={{
                 width: '90%',
-                margin: '2rem 0rem 2rem 2rem',
                 opacity: 0.75,
                 background: 'linear-gradient(135deg, #2F2F2F, #3B3B3B)', // Retro dark gradient
                 border: '3px solid #eee', // Gold border
             }}
         ><Bar data={data} height={60} options={options as any} />
-            <ul className='grid sm:grid-cols-3 gap-2 px-12'>
-                {data.datasets.map((dataset, i) => <li key={i}>
-                    <p className='text-xs flex gap-2 ml-4' style={{ color: dataset.backgroundColor }}>
+            <ul className='grid sm:grid-cols-3 gap-2'>
+                {data
+                    .datasets
+                    .filter(dataset => dataset.data[0] > 0)
+                    .map((dataset, i) => <li key={i}>
+                    <p className='text-xs flex gap-2 mx-4' style={{ color: dataset.backgroundColor }}>
                         <RxShare1 />
-                        {`${dataset.label} (%${dataset.data})`}</p>
+                        {`${dataset.label} (%${dataset.data[0]})`}</p>
                     {/* <ul className='text-xs'>
                         <li><p>React</p></li>
                         <li><p>Angular</p></li>

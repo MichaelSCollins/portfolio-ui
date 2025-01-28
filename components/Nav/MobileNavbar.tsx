@@ -14,7 +14,7 @@ const NavbarMobile = () => {
     };
 
     return (
-        <div className=''>
+        <div className='w-full'>
             <MenuButton onClick={toggleMenu}>
                 <RxHamburgerMenu className="z-50 hover:animate-pulse absolute top-5 right-5 md:opacity-0 rounded-lg p-2 opacity-75 text-6xl border border-foreground text-foreground  cursor-pointer hover:border-primary hover:text-primary  display-none justify-end right-12" />
             </MenuButton>

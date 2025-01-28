@@ -6,10 +6,15 @@ import SketchedMailSymbol from "./SketchedMail"
 export enum SymbolId {
     Arrow = 'arrow',
     Keyboard = 'keyboard',
-    Mail = "Mail"
+    Mail = "mail"
 }
 
-const SymbolStrategy = ({ symbolId, position }: { symbolId: SymbolId, position?: object }) => {
+const SymbolStrategy = ({ symbolId, position }: { symbolId: SymbolId | string, position?: {
+    top?: number | string, 
+    left?: number | string, 
+    bottom?: number | string, 
+    right?: number | string
+}}) => {
     let positionStyles = ''
     if (!position)
     {
