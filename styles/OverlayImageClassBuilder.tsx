@@ -21,7 +21,7 @@ class OverlayTwClassBuilder extends TailwindClassBuilder {
             case OverlayAnchors.BOTTOM_RIGHT:
                 if(this.page === PortfolioPage.ABOUT)
                     imageContainerStyles += `
-                        lg:w-2/3 md:w-4/5 h-3/4 
+                        sm:w-3/5 h-3/4 
                         max-sm:h-1/3 max-md:w-3/4 
                         bottom-0 max-sm:right-0 sm:-right-12`
                 else imageContainerStyles += `

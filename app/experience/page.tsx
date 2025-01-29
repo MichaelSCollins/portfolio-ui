@@ -1,5 +1,6 @@
 "use client"
 import experienceData from "@/.fake/experience"
+import fadeInLoadingAnimation from "@/styles/animations/fadeInAnimation";
 import Image from "next/image";
 import Link from 'next/link'
 import { useState } from "react";
@@ -23,50 +24,11 @@ const Experience = () => {
       </h1>
 
       <div className="mx-3 sm:mx-6">
-        <div className="cards-container py-4 my-4 sm:grid-cols-3 px-4 sm:p1" >
+        <div className="grid sm:grid-cols-3 gap-4 py-4 my-4 sm:grid-cols-3 px-4 sm:p1" >
           {experienceData.map((exp, index) => 
             <ExperienceCard key={index} experience={exp} index={index} />
           )}
         </div>
-
-        <style jsx>{`
-        .container {
-          width: 80%;
-        }
-
-        .heading {
-          text-align: center;
-          margin-bottom: 40px;
-        }
-
-        .cards-container {
-          display: grid;
-          gap: 20px;
-        }
-
-        .card {
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-          font-size: 1.25rem;
-          font-weight: bold;
-        }
-
-        .card-duration {
-          font-size: 1rem;
-        }
-
-        .card-description {
-          font-size: 1rem;
-          margin-top: 10px;
-        }
-
-        .graph-container {
-        }
-      `}</style>
       </div></div>
   );
 };
@@ -74,12 +36,7 @@ const Experience = () => {
 const ExperienceCard = ({ experience, index }: 
   { experience: ExperienceData, index: number }) => {
   const [loaded, setLoaded] = useState(false)
-  const fadeInLoadingAnimation = {
-      transition: 'opacity',
-      transitionDuration: '1s',
-      opacity: loaded ? '100' : '0',
-  }
-  return <Link href={"/company/" + index} className="h-full" style={fadeInLoadingAnimation} key={index}>
+  return <Link href={"/company/" + index} className="h-full min-h-72" style={fadeInLoadingAnimation()} key={index}>
       <div className="card h-full shadow cursor-pointer hover:bg-secondary shadow-xl bg-secondary/35 text-foreground flex flex-col  border border-secondary/50">
         {experience.img &&
           <div className={

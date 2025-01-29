@@ -12,7 +12,7 @@ const Hero = ({
   page,
   hideButtons
 }: {
-  title: string,
+  title?: string,
   subtitle?: string,
   description?: string,
   page?: PortfolioPage,

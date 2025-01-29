@@ -1,11 +1,11 @@
 import { OverlayAnchors } from "@/enums/OverlayDirection";
 
-interface FadeInImage {
+interface ImageData {
     src: string;
     alt: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
     anchor?: OverlayAnchors;
 }
 
-export default FadeInImage
+export default ImageData

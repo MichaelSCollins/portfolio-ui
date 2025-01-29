@@ -1,0 +1,21 @@
+"use client"
+
+import Image from "next/image"
+import ImageData from "@/interfaces/ImageData"
+import { useState } from "react"
+import fadeInAnimation from "@/styles/animations/fadeInAnimation"
+
+const ImageView = ({ image, fill = false }: { image: ImageData, fill?: boolean }) => {
+    const [loaded, setLoaded] = useState(false)
+    return <Image 
+        height={image.height} 
+        width={image.width} 
+        src={image.src} 
+        alt={image.alt}
+        fill={fill}
+        className="w-full"
+        style={fadeInAnimation(loaded)}
+        onLoad={() => setLoaded(true)}/>
+}
+
+export default ImageView

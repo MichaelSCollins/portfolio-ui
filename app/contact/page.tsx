@@ -4,7 +4,7 @@ import bgSymbols from './bg-symbols.json'
 import OverlayLayers from '@/components/Layers/OverlayLayers';
 import PortfolioPage from '@/enums/PortfolioPage';
 import { OverlayAnchors } from '@/enums/OverlayDirection';
-import FadeInImage from "@/interfaces/FadeInImage";
+import ImageData from "@/interfaces/ImageData";
 import { useCMS } from "@/hooks/useCMS";
 
 enum InputTypes {
@@ -20,7 +20,7 @@ const ContactPage = () => {
     const { getString } = useCMS()
     const title = getString('contact.title')
     const subtitle = getString('contact.subtitle')
-    const image: FadeInImage = {
+    const image: ImageData = {
         src: "/img/page-content/blue-guy-2.png",
         anchor: OverlayAnchors.BOTTOM_LEFT,
         width: 750,
@@ -30,6 +30,7 @@ const ContactPage = () => {
     return (
         <section
             className={`
+                px-8
                 w-full
                 flex
                 justify-between
@@ -40,7 +41,7 @@ const ContactPage = () => {
                 image={image}
                 page={PortfolioPage.CONTACT}
             >
-                <div className="h-min-screen flex max-sm:flex-col sm:justify-between">
+                <div className="h-min-screen w-full flex max-sm:flex-col sm:justify-between">
                     <Hero {...{ title, subtitle, page }} hideButtons />
                     <ContactForm />
                 </div>
@@ -58,6 +59,7 @@ const ContactForm = () => {
             className={`
                 px-4
                 z-50
+                sm:w-full
                 flex flex-col gap-4 justify-center
             `}
         >
