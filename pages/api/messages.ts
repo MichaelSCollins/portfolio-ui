@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "@/pages/server/mongodb";
-import Message from "@/pages/server/models/message";
+import { connectDB } from "@/server/mongodb";
+import Message from "@/server/models/message";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     console.log(
