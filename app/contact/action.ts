@@ -1,27 +1,30 @@
 "use server";
 
+import axios from "axios";
+import { contactL }
 import { redirect } from "next/navigation";
-
+const defaultEnvUrl = 'http://localhost:3000'
+const contactSuccessPath = '/thank-you'
+const errorMsg = "Failed to send message."
 export const createMessageAction = async (formData: FormData) => {
     "use server"
-    const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        content: formData.get("content"),
-    };
     console.log({ formData })
-    const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL
-        ?? 'http://localhost:3000' + '/api/messages', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-    });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+        || defaultEnvUrl;
+    const response = await axios.postForm(
+        baseUrl + '/api/messages', formData
+    ).catch(console.error);
 
-    if (response.ok)
+    switch (response?.status)
     {
-        redirect("/thank-you"); // Redirect after success
-    } else
-    {
-        console.error("Failed to send message.", response);
+        case 200:
+        case 201:
+        case 203:
+            redirect(contactSuccessPath); // Redirect after success
+            break;
+
+        default:
+            console.error(errorMsg, response);
+            break;
     }
 }
