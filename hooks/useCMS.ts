@@ -1,6 +1,6 @@
 import content from '@/.fake/content.json'
 export const useCMS = () => {
-    const getObj = <T>(path: string): T | null => {
+    const getObj = <T>(path: string): T => {
         const keys = path.split('.');
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let result: any = content
@@ -10,8 +10,7 @@ export const useCMS = () => {
             result = result[key];
             if (result === undefined)
             {
-                console.warn(`String not found for content: ${path}`);
-                return null;
+                throw `String not found for content: ${path}`
             }
         }
 
@@ -27,8 +26,7 @@ export const useCMS = () => {
             result = result[key];
             if (result === undefined)
             {
-                console.warn(`Obj not found for content: ${path}`);
-                return '';
+                throw `String not found for content: ${path}`
             }
         }
 

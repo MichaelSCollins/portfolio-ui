@@ -14,7 +14,7 @@ interface OverlayLayersProps {
     bgSymbols?: BgSymbol[]
 }
 
-const OverlayLayers = ({ 
+const UILayers = ({
     children,
     image,
     bgSymbols,
@@ -30,8 +30,10 @@ const OverlayLayers = ({
                 }}
             />
         </div>
-        {children}
+        <div className="z-20">
+            {children}
+        </div>
     </main>
 }
 
-export default OverlayLayers;
+export default UILayers;

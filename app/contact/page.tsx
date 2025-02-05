@@ -1,11 +1,12 @@
 import { MdSend } from "react-icons/md";
 import Hero from '@/components/hero/Hero';
 import bgSymbols from './bg-symbols.json'
-import OverlayLayers from '@/components/Layers/OverlayLayers';
+import UILayers from '@/components/Layers/UILayers';
 import PortfolioPage from '@/enums/PortfolioPage';
 import { OverlayAnchors } from '@/enums/OverlayDirection';
 import ImageData from "@/interfaces/ImageData";
 import { useCMS } from "@/hooks/useCMS";
+import { createMessageAction } from "./action";
 
 enum InputTypes {
     text = 'text',
@@ -36,7 +37,7 @@ const ContactPage = () => {
                 justify-between
             `}
         >
-            <OverlayLayers
+            <UILayers
                 bgSymbols={bgSymbols}
                 image={image}
                 page={PortfolioPage.CONTACT}
@@ -45,17 +46,19 @@ const ContactPage = () => {
                     <Hero {...{ title, subtitle, page }} hideButtons />
                     <ContactForm />
                 </div>
-            </OverlayLayers>
+            </UILayers>
         </section>
     );
 };
-export interface FormInput {type: InputTypes, label: string, placeholder: string}
+export interface FormInput { name: string, type: InputTypes, label: string, placeholder: string }
 const ContactForm = () => {
     const { getObj } = useCMS();
     const inputs = getObj<FormInput[]>('contact.form.inputs');
     const fullWidthInputs = getObj<FormInput[]>('contact.form.fullWidthInputs');
+    if (!inputs) throw Error("Missing inputs from content.json")
     return (
         <form
+            action={createMessageAction}
             className={`
                 px-4
                 z-50
@@ -69,6 +72,7 @@ const ContactForm = () => {
                         <label className="text-xs mb-2 text-foreground">{input.label}</label>
                         {input.type === InputTypes.textarea ? (
                             <textarea
+                                name={input.name}
                                 rows={9}
                                 className={`
                                     text-xs p-2 basis-full
@@ -80,6 +84,8 @@ const ContactForm = () => {
                             />
                         ) : (
                             <input
+                                id={input.name}
+                                name={input.name}
                                 type={input.type}
                                 placeholder={input.placeholder}
                                 className={`
@@ -98,6 +104,7 @@ const ContactForm = () => {
                         <label className="text-xs mb-2 text-foreground">{input.label}</label>
                         {input.type === InputTypes.textarea ? (
                             <textarea
+                                name={input.name}
                                 rows={9}
                                 className={`
                                     text-xs p-2 basis-full
@@ -109,6 +116,7 @@ const ContactForm = () => {
                             />
                         ) : (
                             <input
+                                name={input.name}
                                 type={input.type}
                                 placeholder={input.placeholder}
                                 className={`

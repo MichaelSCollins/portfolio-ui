@@ -1,4 +1,4 @@
-import OverlayLayers from "@/components/Layers/OverlayLayers";
+import UILayers from "@/components/Layers/UILayers";
 import UpButton from "@/components/controls/UpButton";
 import Hero from "@/components/hero/Hero"
 import PortfolioPage from "@/enums/PortfolioPage";
@@ -19,18 +19,18 @@ export default function About() {
   const content = getObj<PageContent>("about")
   return (
     <div className="h-full w-screen">
-      <OverlayLayers
+      <UILayers
         page={PortfolioPage.ABOUT}
         image={content?.image ?? defaultImage}
         bgSymbols={Background.about}>
         <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2">
           <UpButton />
-          <Hero 
+          <Hero
             {...content}
-            page={PortfolioPage.ABOUT} 
+            page={PortfolioPage.ABOUT}
             hideButtons />
         </div>
-      </OverlayLayers >
+      </UILayers >
     </div >
   );
 }
