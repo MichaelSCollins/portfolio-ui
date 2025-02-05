@@ -17,7 +17,7 @@ export const createMessageAction = async (formData: FormData) => {
         email: formData.get("email"),
         content: formData.get("content"),
     };
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+    const baseUrl = process.env.BASE_URL
         || defaultEnvUrl;
     const response = await axios.post(
         baseUrl + '/api/messages', body
