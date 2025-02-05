@@ -7,7 +7,6 @@ const HeroButtons: React.FC = () => {
         <section className={`
             flex gap-2.5 max-sm:flex-col
             mt-1 
-            -z-50
             w-full
             text-center text-nowrap
             lg:text-xs`}>
@@ -15,7 +14,7 @@ const HeroButtons: React.FC = () => {
                 className={`
                     bg-secondary text-foreground
                     flex justify-center gap-2
-                    rounded-3xl 
+                    rounded-3xl  cursor-pointer
                     py-2.5 md:px-5 max-sm:px-2`}
                 href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >
@@ -25,7 +24,7 @@ const HeroButtons: React.FC = () => {
             <Link
                 href={'https://calendly.com/michaelscollins-it/15min'}
                 className={`bg-primary text-foreground 
-                    py-2.5 px-11 
+                    py-2.5 px-11  cursor-pointer
                     shadow-2xl border-none rounded-3xl 
                     flex justify-center gap-2`}
 

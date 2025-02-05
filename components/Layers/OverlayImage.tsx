@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import PortfolioPage from '@/enums/PortfolioPage';
-import FadeInImage from '@/interfaces/FadeInImage';
+import ImageData from '@/interfaces/ImageData';
 import useClassBuilder from '@/hooks/useClassBuilder';
 import ClassBuilderType from '@/enums/TailwindBuilderType';
 import OverlayTwClassBuilder from '@/styles/OverlayImageClassBuilder';
 
 interface OverlayImageProps {
-    image: FadeInImage;
+    image: ImageData;
     page?: PortfolioPage;
 }
 const ImageOverlay = ({ 

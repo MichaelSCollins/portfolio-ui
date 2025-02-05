@@ -1,28 +1,27 @@
-import OverlayLayers from "@/components/Layers/OverlayLayers";
+import UILayers from "@/components/Layers/UILayers";
 import Hero from "@/components/hero/Hero";
 import DownButton from "@/components/controls/DownButton";
 import SymbolStrategy, { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 import PortfolioPage from "@/enums/PortfolioPage";
-import { OverlayAnchors } from "@/enums/OverlayDirection";
-import FadeInImage from "@/interfaces/FadeInImage";
+import ImageData from "@/interfaces/ImageData";
+import { useCMS } from "@/hooks/useCMS";
 
 const title = "MIKE COLLINS"
 const subtitle = "Lead Developer"
-const imageSrc = "/img/page-content/blue-guy-3.png"
-const imageWidth = 750
-const imageHeight = 600
 
+interface AppPage {
+  title: string,
+  subtitle: string,
+  image: ImageData,
+}
 export default function Home() {
-  const image: FadeInImage = {
-    src: imageSrc,
-    anchor: OverlayAnchors.BOTTOM_RIGHT,
-    width: imageWidth,
-    height: imageHeight,
-    alt: 'overlay-image'
-  }
+  const { getObj } = useCMS()
+  if (!getObj<AppPage>('home'))
+    throw Error('Missing home property in content.json file.')
+  const { image }: AppPage = getObj<AppPage>('home')
   return (
-    <div className="w-full font-[family-name:var(--font-geist-sans)]">
-      <OverlayLayers
+    <div className="w-full">
+      <UILayers
         image={image}
         bgSymbols={[]}>
         <div className="flex flex-col w-full max-sm:pl-4 justify-center">
@@ -32,7 +31,7 @@ export default function Home() {
           </div>
         </div>
         <DownButton />
-      </OverlayLayers>
+      </UILayers>
     </div>
   );
 }

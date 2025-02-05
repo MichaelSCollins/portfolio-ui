@@ -1,53 +1,36 @@
-import OverlayLayers from "@/components/Layers/OverlayLayers";
-import { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
+import UILayers from "@/components/Layers/UILayers";
 import UpButton from "@/components/controls/UpButton";
 import Hero from "@/components/hero/Hero"
 import PortfolioPage from "@/enums/PortfolioPage";
 import { OverlayAnchors } from "@/enums/OverlayDirection";
 import Img from '@/public/img/bg/image.png'
-import FadeInImage from "@/interfaces/FadeInImage";
+import ImageData from "@/interfaces/ImageData";
+import Background from '@/.fake/background.json'
+import { useCMS } from "@/hooks/useCMS";
+import PageContent from "@/interfaces/PageContent";
 
-const title = 'Hire a developer'
-const subtitle = 'that can take the lead'
-const imageWidth = 600
-const imageHeight = 750
-
+const defaultImage: ImageData = {
+  src: Img.src,
+  anchor: OverlayAnchors.BOTTOM_RIGHT,
+  alt: 'overlay-image'
+}
 export default function About() {
-  const image: FadeInImage = {
-    src: Img.src,
-    anchor: OverlayAnchors.BOTTOM_RIGHT,
-    width: imageWidth,
-    height: imageHeight,
-    alt: 'overlay-image'
-  }
+  const { getObj } = useCMS()
+  const content = getObj<PageContent>("about")
   return (
     <div className="h-full w-screen">
-      <OverlayLayers
+      <UILayers
         page={PortfolioPage.ABOUT}
-        image={image}
-        bgSymbols={[{
-          symbolId: SymbolId.Keyboard, 
-          position: { 
-            top: '31%', 
-            left: '10%' 
-          }
-        }, {
-          symbolId: SymbolId.Mail, 
-          position: { 
-              bottom: '48%', 
-              left: '33%' 
-            }
-          }]}>
+        image={content?.image ?? defaultImage}
+        bgSymbols={Background.about}>
         <div className="flex max-sm:justify-between w-3/4 max-sm:w-1/2">
           <UpButton />
-          <Hero {...{
-            title, subtitle,
-            description: "As a lead developer, I bring years of experience in guiding teams and overseeing the development of complex, high-performance web applications. I specialize in both front-end and back-end technologies, including React, Angular, and various server-side frameworks such as Node.js and Springboot. My leadership approach focuses on clear communication, and efficient workflows by helping my team produce innovative, scalable solutions."
-          }}
-            page={PortfolioPage.ABOUT} 
+          <Hero
+            {...content}
+            page={PortfolioPage.ABOUT}
             hideButtons />
         </div>
-      </OverlayLayers >
+      </UILayers >
     </div >
   );
 }

@@ -3,16 +3,17 @@ import TailwindClassBuilder from "./TailwindBuilder";
 import { twMerge } from "tw-merge";
 
 class HeroClassBuilder extends TailwindClassBuilder {
-    override build() {
-      const classes = {
-        title: "md:text-hlg max-md:text-hsm",
-        subtitle: "md:text-hmd max-md:text-hxs",
-        container: ""
+  override build() {
+    const classes = {
+      title: "md:text-hlg max-md:text-hsm",
+      subtitle: "md:text-hmd max-md:text-hxs",
+      container: ""
     }
-    switch(this.page) {
+    switch (this.page)
+    {
       case PortfolioPage.TITLE:
         classes.title = "md:text-hmd max-md:text-hsm";
-        classes.subtitle = "md:text-hmd max-md:text-hxs";
+        classes.subtitle = "md:text-hmd max-md:text-hxs pb-2";
         break;
       case PortfolioPage.CONTACT:
         classes.title = "md:text-hmd max-md:text-hsm";
@@ -34,9 +35,10 @@ class HeroClassBuilder extends TailwindClassBuilder {
       subtitle,
       container,
       lineHeight: this.page === PortfolioPage.ABOUT
-            ? "2.5rem"
-            : "3.25rem" }
+        ? "2.5rem"
+        : "3.25rem"
     }
   }
+}
 
-  export default HeroClassBuilder
+export default HeroClassBuilder

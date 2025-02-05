@@ -20,14 +20,20 @@ const StackedBarChart = ({ breakdownData }: { breakdownData: number[] }) => {
     const data = getData(breakdownData)
     return (
         <div
-            className="text-foreground mx-auto duration-1000 sm:p-12 max-sm:p-2 rounded-lg justify-end shadow-md "
+            className={`text-foreground mx-auto justify-end
+                        p-8 sm:w-3/4 max-sm:w-11/12 h-min
+                        rounded-lg  shadow-md duration-1000`}
             style={{
-                width: '90%',
-                opacity: 0.75,
+                opacity: 1,
                 background: 'linear-gradient(135deg, #2F2F2F, #3B3B3B)', // Retro dark gradient
                 border: '3px solid #eee', // Gold border
             }}
-        ><Bar data={data} height={60} options={options as any} />
+        >
+            
+        <h2 className="text-3xl text-foreground border-b-2 border-foreground">
+            Skills
+        </h2>
+            <Bar data={data} height={60} options={options as any} />
             <ul className='grid sm:grid-cols-3 gap-2'>
                 {data
                     .datasets

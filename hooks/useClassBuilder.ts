@@ -4,11 +4,13 @@ import OverlayImageClassBuilder from "@/styles/OverlayImageClassBuilder";
 import ClassBuilder from "@/styles/TailwindBuilder";
 
 // Singleton Class Builder
-let classBuilders = new Map<ClassBuilderType, ClassBuilder>()
+const classBuilders = new Map<ClassBuilderType, ClassBuilder>()
 const useClassBuilder = <T>(builderType: ClassBuilderType): T => {
     let builder = classBuilders.get(builderType)
-    if(!builder) {
-        switch(builderType) {
+    if (!builder)
+    {
+        switch (builderType)
+        {
             case ClassBuilderType.Hero:
                 builder = new HeroClassBuilder()
                 break
