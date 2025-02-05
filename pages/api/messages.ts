@@ -1,24 +1,27 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "@/server/mongodb";
+import MongoConnection from "@/server/MongoConnectionBuilder";
 import Message from "@/server/models/message";
+import SpeedLogger from "@/utils/SpeedLogger";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     console.log(
         "connecting to DB..."
     )
-    await connectDB(); // Connect to MongoDB
+    const logger = new SpeedLogger()
+        .setMessage("Created Message in $t")
+    await MongoConnection.connect(); // Connect to MongoDB
     switch (req.method)
     {
         case "POST":
             try
             {
                 return await post(req, res)
+                logger.speedLog()
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (e: any)
             {
                 return res.status(500).json({ error: "Server error " + e.message });
             }
-            break;
         default:
             return res.status(405).json({ error: "Method not allowed" });
     }
