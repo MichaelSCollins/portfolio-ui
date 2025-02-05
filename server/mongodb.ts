@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI as string
-    ?? "mongodb+srv://codebigthings:4friends@portfolio-messages.emwze.mongodb.net/";
+const mongoUrl = process.env.NEXT_PUBLIC_MONGODB_URI
+    || "mongodb+srv://codebigthings:4friends@portfolio-messages.emwze.mongodb.net/";
 
-if (!MONGODB_URI)
+if (!process.env.NEXT_PUBLIC_MONGODB_URI)
 {
-    throw new Error("Please define the MONGODB_URI environment variable");
+    console.error("Please define the MONGODB_URI environment variable");
 }
 
 export const connectDB = async () => {
@@ -19,7 +19,7 @@ export const connectDB = async () => {
 
     try
     {
-        await mongoose.connect(process.env.MONGO_URI!, {
+        await mongoose.connect(mongoUrl!, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
