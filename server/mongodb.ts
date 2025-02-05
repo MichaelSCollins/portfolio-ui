@@ -11,7 +11,20 @@ if (!MONGODB_URI)
 export const connectDB = async () => {
     if (mongoose.connection.readyState >= 1)
     {
+        console.log("✅ Using existing MongoDB connection");
         return;
     }
-    await mongoose.connect(MONGODB_URI);
+
+    try
+    {
+        console.log("🌍 Connecting to MongoDB...");
+        await mongoose.connect(MONGODB_URI, {
+            serverSelectionTimeoutMS: 5000, // ⏳ Wait max 5s before failing
+        });
+        console.log("✅ Connected to MongoDB");
+    } catch (error)
+    {
+        console.error("❌ MongoDB Connection Error:", error);
+        throw new Error("Failed to connect to database");
+    }
 };
