@@ -25,7 +25,9 @@ class MongoConnection {
             console.error("Please define the MONGODB_URI environment variable");
         }
         const logger = new SpeedLogger()
-        await mongoose.connect(this.mongoUrl!);
+        await mongoose.connect(this.mongoUrl!, {
+            dbName: "test"
+        });
         logger.speedLog()
     }
 }
