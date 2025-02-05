@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import ExperienceItem from '@/interfaces/ExperienceItem';
-import styles from './page.module.css'; //
-import { twMerge } from 'tw-merge';
 
 export const BasicInfo = ({ experience }: { experience: ExperienceItem }) => {
     return <section className={`

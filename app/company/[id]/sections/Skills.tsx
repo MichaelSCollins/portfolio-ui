@@ -1,7 +1,5 @@
-import PieChart from './chart';
-import styles from './page.module.css'
 
-export const Skills = ({ skills }: { skills: number[] }) => {
+export const Skills = ({ }: { skills: number[] }) => {
     return (<section className={'flex flex-col'}>
         {/* <ul>
             {skills.map(
