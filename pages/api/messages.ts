@@ -15,6 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case "POST":
             try
             {
+                console.log(
+                    "posting..."
+                )
                 return await post(req, res)
                 logger.speedLog()
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
