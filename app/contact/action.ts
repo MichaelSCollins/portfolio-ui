@@ -1,14 +1,12 @@
 "use server";
 
 import axios from "axios";
-import { contactL }
 import { redirect } from "next/navigation";
 const defaultEnvUrl = 'http://localhost:3000'
 const contactSuccessPath = '/thank-you'
 const errorMsg = "Failed to send message."
 export const createMessageAction = async (formData: FormData) => {
     "use server"
-    console.log({ formData })
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
         || defaultEnvUrl;
     const response = await axios.postForm(
