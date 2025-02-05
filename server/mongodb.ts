@@ -15,16 +15,19 @@ export const connectDB = async () => {
         return;
     }
 
+    const startTime = Date.now();
+
     try
     {
-        console.log("🌍 Connecting to MongoDB...");
-        await mongoose.connect(MONGODB_URI, {
-            serverSelectionTimeoutMS: 5000, // ⏳ Wait max 5s before failing
-        });
-        console.log("✅ Connected to MongoDB");
+        await mongoose.connect(process.env.MONGO_URI!, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } as any);
+        console.log(`✅ Connected to MongoDB in ${Date.now() - startTime}ms`);
     } catch (error)
     {
-        console.error("❌ MongoDB Connection Error:", error);
-        throw new Error("Failed to connect to database");
+        console.error("❌ MongoDB connection error:", error);
+        throw new Error("Failed to connect to MongoDB");
     }
 };

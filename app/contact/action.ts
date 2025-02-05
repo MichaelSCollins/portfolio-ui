@@ -10,7 +10,8 @@ export const createMessageAction = async (formData: FormData) => {
         content: formData.get("content"),
     };
     console.log({ formData })
-    const response = await fetch("https://portfolio-ui-murex.vercel.app/api/messages", {
+    const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL
+        ?? 'http://localhost:3000' + '/api/messages', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
