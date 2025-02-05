@@ -1,27 +1,40 @@
 "use server";
 
+import SpeedLogger from "@/utils/SpeedLogger";
+import axios from "axios";
 import { redirect } from "next/navigation";
+
+const defaultEnvUrl = 'http://localhost:3000'
+const thankYouPath = '/thank-you'
+const errorMsg = "Fail"
 
 export const createMessageAction = async (formData: FormData) => {
     "use server"
-    const data = {
+    const logger = new SpeedLogger()
+        .setMessage("Create Message Action: ")
+    const body = {
         name: formData.get("name"),
         email: formData.get("email"),
         content: formData.get("content"),
     };
-    console.log({ formData })
-    const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL
-        ?? 'http://localhost:3000' + '/api/messages', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-    });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+        || defaultEnvUrl;
+    const response = await axios.post(
+        baseUrl + '/api/messages', body
+    ).catch(console.error);
 
-    if (response.ok)
+    switch (response?.status)
     {
-        redirect("/thank-you"); // Redirect after success
-    } else
-    {
-        console.error("Failed to send message.", response);
+        case 200:
+        case 201:
+        case 203:
+            logger.speedLog();
+            redirect(thankYouPath); // Redirect after success
+            break;
+
+        default:
+            logger.addToMessage(` [${errorMsg}]: ${JSON.stringify(response)
+                }`).speedLog()
+            break;
     }
 }
