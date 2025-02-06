@@ -1,6 +1,6 @@
 "use server";
 
-import SpeedLogger from "@/utils/SpeedLogger";
+import TimeLogger from "@/utils/TimeLogger";
 import axios from "axios";
 import { redirect } from "next/navigation";
 
@@ -10,7 +10,7 @@ const errorMsg = "Fail"
 
 export const createMessageAction = async (formData: FormData) => {
     "use server"
-    const logger = new SpeedLogger()
+    const logger = new TimeLogger()
         .setMessage("Create Message Action: ")
     const body = {
         name: formData.get("name"),
@@ -28,13 +28,13 @@ export const createMessageAction = async (formData: FormData) => {
         case 200:
         case 201:
         case 203:
-            logger.speedLog();
+            logger.log();
             redirect(thankYouPath); // Redirect after success
             break;
 
         default:
             logger.addToMessage(` [${errorMsg}]: ${JSON.stringify(response)
-                }`).speedLog()
+                }`).log()
             break;
     }
 }

@@ -1,5 +1,5 @@
 
-class SpeedLogger {
+class TimeLogger {
     private startTime;
     private message = `✅ Connected to MongoDB in $t`;
     constructor() {
@@ -13,7 +13,7 @@ class SpeedLogger {
         this.message += message
         return this;
     }
-    speedLog(message: string = this.message, endTime = Date.now()) {
+    log(message: string = this.message, endTime = Date.now()) {
         const speed = endTime - this.startTime + 'ms'
         const messageWithSpeed = message.includes('$t')
             ? this.message.replace(
@@ -27,4 +27,4 @@ class SpeedLogger {
         console.error("❌ MongoDB connection error:", error);
     }
 }
-export default SpeedLogger
+export default TimeLogger
