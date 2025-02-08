@@ -7,7 +7,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./Image/**/*.{js,ts,jsx,tsx,mdx}",
-    "./styles/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
     "./Layers/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -22,29 +22,6 @@ export default {
         borderRadius: '8px',
         padding: '20px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
-      }
-      cssRulesObj['.overlay-right'] = {
-        marginTop: 'auto',
-        marginLeft: 'auto'
-      }
-      cssRulesObj['.big-overlay-right'] = {
-        position: 'absolute',
-        right: '0',
-        bottom: '0',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'right',
-        alignItems: 'right'
-      }
-
-      cssRulesObj['.big-overlay-right'] = {
-        position: 'absolute',
-        right: '0',
-        bottom: '0',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'right',
-        alignItems: 'right'
       }
       cssRulesObj['.overlay-left'] = {
         position: 'absolute',

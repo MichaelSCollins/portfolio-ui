@@ -1,7 +1,11 @@
-import MessagesController from "@/server/controllers/messages/controller";
+import MessageController from "@/server/controllers/message-controller";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-    req: NextApiRequest, res: NextApiResponse) {
-    return await MessagesController.handle(req, res)
+const handler = async (
+    req: NextApiRequest,
+    res: NextApiResponse
+) => {
+    MessageController.handler(req, res)
 }
+
+export default await handler

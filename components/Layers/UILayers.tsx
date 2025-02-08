@@ -2,14 +2,14 @@
 import { ReactNode } from "react";
 
 import ImageOverlay from "./OverlayImage";
-import { BgSymbol } from "@/interfaces/BgSymbol";
+import { BgSymbol } from "@/lib/interfaces/BgSymbol";
 import BackgroundLayer from "./BackgroundLayer";
-import PortfolioPage from "@/enums/PortfolioPage";
-import ImageData from "@/interfaces/ImageData";
+import PortfolioPage from "@/lib/enums/PortfolioPage";
+import ImageData from "@/lib/interfaces/ImageData";
 
 interface OverlayLayersProps {
     children?: ReactNode;
-    image: ImageData;
+    image?: ImageData;
     page?: PortfolioPage;
     bgSymbols?: BgSymbol[]
 }
@@ -20,17 +20,19 @@ const UILayers = ({
     bgSymbols,
     page
 }: OverlayLayersProps) => {
-    return <main className={"flex flex-col h-full w-full"}>
-        <div className={`h-full w-full absolute bottom-0 right-0`}>
+    return <main className={"flex flex-col h-full w-full md:justify-center"}>
+        <div className={`h-full w-full bottom-0 right-0`}>
             <BackgroundLayer bgSymbols={bgSymbols || []} />
-            <ImageOverlay
+        </div>
+        <div className={`h-full w-full`}>
+            {image && <ImageOverlay
                 {...{
                     image,
                     page
                 }}
-            />
+            />}
         </div>
-        <div className="z-20">
+        <div className="z-20 h-full w-full flex flex-col justify-center">
             {children}
         </div>
     </main>

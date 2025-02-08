@@ -1,6 +1,6 @@
 "use client"
 import experienceData from "@/.fake/experience"
-import fadeInLoadingAnimation from "@/styles/animations/fadeInAnimation";
+import fadeInLoadingAnimation from "@/lib/animations/fadeInAnimation";
 import Image from "next/image";
 import Link from 'next/link'
 import { useState } from "react";

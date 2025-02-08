@@ -1,4 +1,4 @@
-/* global use, db */
+// /* global use, db */
 // MongoDB Playground
 // To disable this template go to Settings | MongoDB | Use Default Template For Playground.
 // Make sure you are connected to enable completions and to be able to run a playground.
@@ -10,7 +10,7 @@
 // https://www.mongodb.com/docs/mongodb-vscode/playgrounds/
 
 // Select the database to use.
-use('mongodbVSCodePlaygroundDB');
+// use('mongodbVSCodePlaygroundDB');
 
 // Insert a few documents into the sales collection.
 db.getCollection('sales').insertMany([

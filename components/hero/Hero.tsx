@@ -1,9 +1,9 @@
-import PortfolioPage from "@/enums/PortfolioPage";
+import PortfolioPage from "@/lib/enums/PortfolioPage";
 import HeroButtons from "./HeroButtons";
 import HeroTitle from "./HeroTitle";
 import useClassBuilder from "@/hooks/useClassBuilder";
-import TwBuilderType from "@/enums/TailwindBuilderType";
-import HeroClassBuilder from "@/styles/HeroClassBuilder";
+import TwBuilderType from "@/lib/enums/TailwindBuilderType";
+import HeroClassBuilder from "@/lib/tailwind-class-builders/HeroClassBuilder";
 
 const Hero = ({
   title,
