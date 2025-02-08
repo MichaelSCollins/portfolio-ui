@@ -1,4 +1,4 @@
-import { BgSymbol } from "@/interfaces/BgSymbol";
+import { BgSymbol } from "@/lib/interfaces/BgSymbol";
 import SymbolStrategy from "./bg/symbols/SymbolStrategy";
 
 const BackgroundLayer = ({ bgSymbols }: { bgSymbols: BgSymbol[] }) => (

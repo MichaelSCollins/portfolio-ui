@@ -1,48 +1,49 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import TimeLogger from "@/utils/TimeLogger";
+import TimeLogger from "@/lib/logger/TimeLogger";
 import { NextApiRequest, NextApiResponse } from "next";
-import MongoConnection from "../_db/MongoConnectionBuilder";
 
 class ApiController {
     static instance: any;
-    static async handle(
+    static async handler(
         req: NextApiRequest,
         res: NextApiResponse) {
-        if (!this.instance)
+        if (!ApiController.instance)
         {
-            this.instance = new this()
+            ApiController.instance = new ApiController()
         }
-        return await this.instance.processRequest(req, res)
+        return await ApiController.instance.handler(req, res)
     }
-    constructor() { }
-    async processRequest(req: NextApiRequest, res: NextApiResponse) {
+    constructor() {
+        console.log(
+            "connecting to DB... " + process.env.NEXT_PUBLIC_MONGODB_URI
+        )
+    }
+    async handler(req: NextApiRequest, res: NextApiResponse) {
         try
         {
             const logger = new TimeLogger()
-            console.log(
-                "connecting to DB... " + process.env.NEXT_PUBLIC_MONGODB_URI
-            )
             if (!req.method)
             {
                 throw "No HTTP Method Provided."
             }
-            const method = '_' + req.method?.toLowerCase()
-            await MongoConnection.connect(); // Connect to MongoDB
             const self = this as ApiController & any
-
+            const method = '_' + req.method?.toLowerCase()
             console.log(
-                method, process.env.BASE_URL
+                method + ": ", process.env.BASE_URL
             )
-            return await self[method](req, res)
-            logger.log("[$t] Created Message finished.")
+            console.log({ self: self[method] })
+            const response = await self[method](req, res)
+            logger.log("[$t] Created Message finished.", response)
+            res.status(200).json(response); // Ensure response is sent back
         } catch (e: any)
         {
-            this.onError(e)
+            this.onError(e, res) // Pass res to onError
         }
     }
-    onError(e: any) {
+    onError(e: any, res: NextApiResponse) {
         console.error(e)
+        res.status(500).json({ error: e.message || 'Internal Server Error' }); // Send error response
     }
     async _get(
         req: NextApiRequest,

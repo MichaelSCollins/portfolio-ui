@@ -1,5 +1,5 @@
-import PortfolioPage from "@/enums/PortfolioPage"
-import { OverlayAnchors } from "@/enums/OverlayDirection"
+import PortfolioPage from "@/lib/enums/PortfolioPage"
+import { OverlayAnchors } from "@/lib/enums/OverlayDirection"
 import { twMerge } from "tw-merge"
 import TailwindClassBuilder from "./TailwindBuilder"
 
@@ -21,12 +21,10 @@ class OverlayTwClassBuilder extends TailwindClassBuilder {
             case OverlayAnchors.BOTTOM_RIGHT:
                 if (this.page === PortfolioPage.ABOUT)
                     imageContainerStyles += `
-                        sm:w-3/5 h-3/4 
-                        max-sm:h-1/3 max-md:w-3/4 
-                        bottom-0 max-sm:right-0 sm:-right-12`
+                        max-md:w-96 max-md:h-90
+                        bottom-0 max-md:right-0 md:-right-12`
                 else imageContainerStyles += `
-                    w-1/2 h-2/3
-                    max-sm:h-1/3 max-sm:w-2/3 
+                    max-md:h-64 max-md:w-64
                     bottom-0 right-0`
                 break;
             case OverlayAnchors.BOTTOM_LEFT:
@@ -34,7 +32,6 @@ class OverlayTwClassBuilder extends TailwindClassBuilder {
                             max-sm:w-11/12 max-sm:bottom-0`
                 break;
         }
-        console.log({ newStyles: imageContainerStyles, a: this.anchor })
         return { container: twMerge(imageContainerStyles) }
     }
 }

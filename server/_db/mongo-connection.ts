@@ -1,4 +1,4 @@
-import TimeLogger from "@/utils/TimeLogger";
+import TimeLogger from "@/lib/logger/TimeLogger";
 import mongoose from "mongoose";
 
 const defaultMongoUrl = "mongodb+srv://codebigthings:4friends@portfolio-messages.emwze.mongodb.net/"
@@ -10,16 +10,20 @@ const defaultMongoConfig: any = {
         version: '1'
     }
 }
+
+const mongoUrl: string = process.env.NEXT_PUBLIC_MONGODB_URI
+    || defaultMongoUrl;
+let instance: MongoConnection;
 class MongoConnection {
-    private mongoUrl: string = process.env.NEXT_PUBLIC_MONGODB_URI
-        || defaultMongoUrl;
     static async connect() {
-        const builder = new this()
-        return await builder.connect()
+        if (!instance)
+            instance = new this()
+        return await instance.connect()
     }
-    setUrl(url: string) {
-        this.mongoUrl = url
-        return this
+    static async end() {
+        if (!instance)
+            instance = new this()
+        return await instance.end()
     }
 
     async connect() {
@@ -33,8 +37,12 @@ class MongoConnection {
             console.error("Please define the MONGODB_URI environment variable");
         }
         const timer = new TimeLogger()
-        await mongoose.connect(this.mongoUrl!, defaultMongoConfig);
-        timer.log()
+        await mongoose.connect(mongoUrl!, defaultMongoConfig);
+        timer.log("[MongoDB] Connection in ")
+    }
+
+    async end() {
+        return await mongoose.disconnect()
     }
 }
 export default MongoConnection

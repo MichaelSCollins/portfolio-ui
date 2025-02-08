@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { RiArrowDropLeftFill } from "react-icons/ri";
 import { BasicInfo, Screenshots, Achievements } from '@/app/company/[id]/sections';
-import ExperienceItem from '@/interfaces/ExperienceItem'
+import ExperienceItem from '@/lib/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
 import FadeInImage from '@/components/Image/FadeInImage';
 import StackedBarChart from './sections/chart';
@@ -25,16 +25,17 @@ function CompanyPage({ params: { id } }: any) {
                     </div>
 
                     <div className='flex max-sm:flex-col sm:mt-10'>
+                        <Achievements achievements={experience.achievements || []} />
                         <div className='w-full h-full grow flex justify-between'>
-                            <FadeInImage
+                            {/* <FadeInImage
                                 image={{
                                     src: '/img/page-content/blue-guy-4.webp',
                                     alt: experience.img?.alt || 'company-logo',
                                     height: 500,
                                     width: 750
-                                }} />
+                                }} /> */}
                         </div>
-                        <Achievements achievements={experience.achievements || []} />
+
                     </div>
                     {experience.screenshots
                         && experience.screenshots.length

@@ -1,4 +1,4 @@
-import { OverlayAnchors } from "@/enums/OverlayDirection";
+import { OverlayAnchors } from "@/lib/enums/OverlayDirection";
 
 interface ImageData {
     src: string;

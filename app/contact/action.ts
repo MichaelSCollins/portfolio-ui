@@ -1,6 +1,6 @@
 "use server";
 
-import TimeLogger from "@/utils/TimeLogger";
+import TimeLogger from "@/lib/logger/TimeLogger";
 import axios from "axios";
 import { redirect } from "next/navigation";
 
@@ -21,7 +21,7 @@ export const createMessageAction = async (formData: FormData) => {
         || defaultEnvUrl;
     const response = await axios.post(
         baseUrl + '/api/messages', body
-    ).catch(console.error);
+    )
 
     switch (response?.status)
     {

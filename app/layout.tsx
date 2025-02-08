@@ -24,7 +24,7 @@ export default function RootLayout({
     <><html lang="en">
       <body>
         <div
-          className={`${poppins.variable} relative h-full min-h-screen bg-background antialiased`}
+          className={`${poppins.variable} relative min-h-screen h-full bg-background antialiased`}
         >
           <NavBar />
           {children}

@@ -44,5 +44,5 @@ body {
 }
 
 main {
-  @apply flex flex-row mt-24
+  @apply flex flex-row
 }

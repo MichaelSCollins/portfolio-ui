@@ -2,8 +2,8 @@ import UILayers from "@/components/Layers/UILayers";
 import Hero from "@/components/hero/Hero";
 import DownButton from "@/components/controls/DownButton";
 import SymbolStrategy, { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
-import PortfolioPage from "@/enums/PortfolioPage";
-import ImageData from "@/interfaces/ImageData";
+import PortfolioPage from "@/lib/enums/PortfolioPage";
+import ImageData from "@/lib/interfaces/ImageData";
 import { useCMS } from "@/hooks/useCMS";
 
 const title = "MIKE COLLINS"
@@ -24,8 +24,8 @@ export default function Home() {
       <UILayers
         image={image}
         bgSymbols={[]}>
-        <div className="flex flex-col w-full max-sm:pl-4 justify-center">
-          <div className="flex w-full sm:ml-12">
+        <div className="flex flex-col max-sm:pl-4 justify-center">
+          <div className="flex mt-8 sm:ml-12 md:w-1/2 justify-center">
             <SymbolStrategy symbolId={SymbolId.Arrow} />
             <Hero {...{ title, subtitle }} page={PortfolioPage.TITLE} />
           </div>
