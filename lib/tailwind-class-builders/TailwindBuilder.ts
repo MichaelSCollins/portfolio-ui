@@ -1,4 +1,3 @@
-import { OverlayAnchors } from "@/lib/enums/OverlayDirection"
 import PortfolioPage from "@/lib/enums/PortfolioPage"
 
 class TailwindClassBuilder {

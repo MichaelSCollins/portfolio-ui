@@ -3,7 +3,6 @@ import { RiArrowDropLeftFill } from "react-icons/ri";
 import { BasicInfo, Screenshots, Achievements } from '@/app/company/[id]/sections';
 import ExperienceItem from '@/lib/interfaces/ExperienceItem'
 import experiences from '@/.fake/experience'
-import FadeInImage from '@/components/Image/FadeInImage';
 import StackedBarChart from './sections/chart';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CompanyPage({ params: { id } }: any) {
