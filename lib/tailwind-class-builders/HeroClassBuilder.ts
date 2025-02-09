@@ -37,6 +37,7 @@ class HeroClassBuilder extends TailwindClassBuilder {
       container,
       lineHeight: this.page === PortfolioPage.ABOUT
         ? "2.5rem"
+        // TODO: make responsive
         : "3.25rem"
     }
   }

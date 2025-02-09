@@ -10,6 +10,7 @@ class MessageController extends NextApiController implements IController {
         const document = await MessageDBAdapter.toMongoDB(
             this.req!.body
         )
+        console.log("finished saving")
         console.log(document)
         if (!document)
         {

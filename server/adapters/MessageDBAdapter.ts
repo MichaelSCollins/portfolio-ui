@@ -63,7 +63,23 @@ class MessageDBAdapter {
         }
         return messageDoc
     }
+    toMongoDB = async () => {
+        try
+        {
+            MongoConnection.connect();
+            console.log("Mongo: Performing Save Chain")
+            const savedDoc = await this
+                .validate()
+                .save()
+            MongoConnection.end();
+            return savedDoc
+        } catch (e: any)
+        {
+            this.onError(e)
+        }
+    }
     validate = () => {
+        console.log("Mongo: Performing Validation")
         const validationMsg = "Failed validation: ";
         if (!this.body)
         {
@@ -87,6 +103,7 @@ class MessageDBAdapter {
             timeSent: new Date()
         }
         this.valid = true
+        console.log("Mongo: Valid")
         return this
     }
     save = async () => {
@@ -96,22 +113,14 @@ class MessageDBAdapter {
             MongoConnection.end();
             return;
         }
+        console.log("Mongo: Saving")
         const newMessage = new Message(this.validatedBody);
         await newMessage.save();
+        console.log("Mongo: Finishing")
         this.document = newMessage
         MongoConnection.end();
+        console.log("Mongo: Returning")
         return newMessage
-    }
-    toMongoDB = async () => {
-        try
-        {
-            MongoConnection.connect();
-            return await this.validate()
-                .save()
-        } catch (e: any)
-        {
-            this.onError(e)
-        }
     }
     onError(callback: (e: any) => void) {
         this.onErrorCallback = callback

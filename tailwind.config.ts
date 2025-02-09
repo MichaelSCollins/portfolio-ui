@@ -41,7 +41,7 @@ export default {
         'hlg': "3.25rem",
         'hmd': '2.8rem',
         'hsm': '2.2rem',
-        'hxs': '1.85rem',
+        'hxs': '2.1rem',
         'h2xs': '1.55rem'
       },
       colors: {

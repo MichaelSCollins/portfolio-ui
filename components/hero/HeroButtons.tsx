@@ -5,7 +5,7 @@ import Link from 'next/link';
 const HeroButtons: React.FC = () => {
     return (
         <section className={`
-            flex gap-2.5 max-sm:flex-col
+            flex gap-2.5 max-md:flex-col
             mt-1 
             w-full
             text-center text-nowrap
@@ -15,7 +15,7 @@ const HeroButtons: React.FC = () => {
                     bg-secondary text-foreground
                     flex justify-center gap-2
                     rounded-3xl  cursor-pointer
-                    py-2.5 md:px-5 max-sm:px-2`}
+                    py-2.5 px-5 max-sm:px-2`}
                 href='https://docs.google.com/document/d/1MaI7IFk0fSh1fELwgzSvps0siFIdsFYs_ELmYL4vVmE/edit?usp=sharing'
             >
                 Download CV
