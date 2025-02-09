@@ -8,7 +8,7 @@ import StackedBarChart from './sections/chart';
 function CompanyPage({ params: { id } }: any) {
     const experience: ExperienceItem = experiences[+id]
     return (
-        <div className='sm:px-12 max-sm:px-6  w-full'>
+        <div className='sm:px-12 max-sm:px-6 w-full'>
             <div className={'flex flex-col '}>
                 <Link className='mt-8 text-secondary max-sm:mx-auto flex text-sm *:hover:text-primary'
                     href="/experience">

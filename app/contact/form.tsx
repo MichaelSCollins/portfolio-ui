@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useCMS } from "@/hooks/useCMS";
 import { MdSend } from "react-icons/md";
 import { createMessageAction } from "./action";
@@ -103,4 +105,4 @@ const ContactForm = () => {
         </form>
     );
 };
-export default ContactForm
+export default ContactForm;

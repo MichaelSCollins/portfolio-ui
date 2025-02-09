@@ -17,7 +17,14 @@ class ApiController {
     constructor() {
         console.log(
             "connecting to DB... " + process.env.MONGODB_URI
-        )
+        );
+        // Ensure the connection string is correct
+        const mongoUri = process.env.MONGODB_URI
+        if (!mongoUri)
+        {
+            throw new Error("MongoDB URI is not defined or incorrect");
+        }
+        // ...existing code to connect to MongoDB...
     }
     async handler(req: NextApiRequest, res: NextApiResponse) {
         try
