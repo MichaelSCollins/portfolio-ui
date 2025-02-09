@@ -1,7 +1,6 @@
 import TimeLogger from "@/lib/logger/TimeLogger";
 import mongoose from "mongoose";
 
-const defaultMongoUrl = "mongodb+srv://codebigthings:4friends@portfolio-messages.emwze.mongodb.net/"
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const defaultMongoConfig: any = {
     serverApi: {
@@ -11,8 +10,6 @@ const defaultMongoConfig: any = {
     }
 }
 
-const mongoUrl: string = process.env.MONGODB_URI
-    || defaultMongoUrl;
 let instance: MongoConnection;
 class MongoConnection {
     static async connect() {
@@ -37,7 +34,7 @@ class MongoConnection {
             console.error("Please define the MONGODB_URI environment variable");
         }
         const timer = new TimeLogger()
-        await mongoose.connect(mongoUrl!, defaultMongoConfig);
+        await mongoose.connect(process.env.MONGODB_URI!, defaultMongoConfig);
         timer.log("[MongoDB] Connection in ")
     }
 
