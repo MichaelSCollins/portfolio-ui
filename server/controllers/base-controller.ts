@@ -16,7 +16,7 @@ class ApiController {
     }
     constructor() {
         console.log(
-            "connecting to DB... " + process.env.NEXT_PUBLIC_MONGODB_URI
+            "connecting to DB... " + process.env.MONGODB_URI
         )
     }
     async handler(req: NextApiRequest, res: NextApiResponse) {

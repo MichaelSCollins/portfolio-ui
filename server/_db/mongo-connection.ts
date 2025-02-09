@@ -11,7 +11,7 @@ const defaultMongoConfig: any = {
     }
 }
 
-const mongoUrl: string = process.env.NEXT_PUBLIC_MONGODB_URI
+const mongoUrl: string = process.env.MONGODB_URI
     || defaultMongoUrl;
 let instance: MongoConnection;
 class MongoConnection {
@@ -32,7 +32,7 @@ class MongoConnection {
             console.log("✅ Using existing MongoDB connection");
             return;
         }
-        if (!process.env.NEXT_PUBLIC_MONGODB_URI)
+        if (!process.env.MONGODB_URI)
         {
             console.error("Please define the MONGODB_URI environment variable");
         }

@@ -75,7 +75,13 @@ const PieChart = () => {
     };
 
     return (
-        <div className='text-foreground' style={{ width: '100%', height: '100%', right: 0, position: 'absolute' }}>
+        <div className='text-foreground' style={
+            {
+                width: '100%',
+                height: '100%',
+                right: 0,
+                position: 'absolute'
+            }}>
             <Pie data={data} options={options as any} />
         </div>
     );
