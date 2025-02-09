@@ -19,30 +19,30 @@ function CompanyPage({ params: { id } }: any) {
                     <div className="flex max-sm:flex-col justify-between w-full">
                         <div className="flex max-sm:flex-col sm:w-3/4">
                             <BasicInfo experience={experience} />
-                        </div>
-                        <StackedBarChart breakdownData={experience.skillBreakdown ?? []} />
-                    </div>
+                        </div><Achievements achievements={experience.achievements || []} />
 
-                    <div className='flex max-sm:flex-col sm:mt-10'>
-                        <Achievements achievements={experience.achievements || []} />
-                        <div className='w-full h-full grow flex justify-between'>
-                            {/* <FadeInImage
+                        {/* <div className='flex max-sm:flex-col sm:mt-10'>
+                            <div className='w-full h-full grow flex justify-between'>
+                                {/* <FadeInImage
                                 image={{
                                     src: '/img/page-content/blue-guy-4.webp',
                                     alt: experience.img?.alt || 'company-logo',
                                     height: 500,
                                     width: 750
                                 }} /> */}
-                        </div>
-
+                        {/* </div>
+                </div>  */}
                     </div>
+
+
+                    <StackedBarChart breakdownData={experience.skillBreakdown ?? []} />
                     {experience.screenshots
                         && experience.screenshots.length
                         && <Screenshots images={experience.screenshots || []} />}
                     {/* <PieChart /> */}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 export default CompanyPage
