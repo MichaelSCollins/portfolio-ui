@@ -3,7 +3,7 @@ import HeroButtons from "./HeroButtons";
 import HeroTitle from "./HeroTitle";
 import useClassBuilder from "@/hooks/useClassBuilder";
 import TwBuilderType from "@/lib/enums/TailwindBuilderType";
-import HeroClassBuilder from "@/lib/tailwind-class-builders/HeroClassBuilder";
+import HeroClassBuilder from "@/lib/tailwind/HeroClassBuilder";
 
 const Hero = ({
   title,
@@ -24,9 +24,9 @@ const Hero = ({
     .setPage(page)
     .build()
 
-  return <div className={classes.container}>
+  return <div className={classes.container + ""}>
     <HeroTitle {...{ title: title ?? "", subtitle, description, page }} />
-    {description && <section className="max-sm:w-3/4 w-2/5 cursor-pointer">
+    {description && <section className="max-sm:w-3/4 cursor-pointer">
       <p className="text-clip text-xs">{clippedDesc} <a>... [Read More]</a></p>
     </section>}
     {!hideButtons && <HeroButtons />}

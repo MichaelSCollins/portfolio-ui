@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Message from '@/server/models/message'
-import MessageFilter from "../filter/MessageFilter";
+// import MessageFilter from "../filter/MessageFilter";
 import { Document } from "mongoose";
 import MongoConnection from "../_db/mongo-connection";
 
@@ -23,7 +23,7 @@ class MessageDBAdapter {
     }
     static async fromMongoDB(
         filter: any) {
-        if (this.instance)
+        if (!this.instance)
         {
             MessageDBAdapter.instance = new MessageDBAdapter()
         }
@@ -47,16 +47,16 @@ class MessageDBAdapter {
         try
         {
             MongoConnection.connect();
-            const { id, name, email } = this.filter
-            const messageFilter = MessageFilter.build({
-                name, email
-            })
+            const { id, subject, email } = this.filter
+            // const messageFilter = MessageFilter.build({
+            //     email
+            // })
             if (!!id)
                 messageDoc = await Message.findById(id)
-            if (!!email || !!name)
-                messageDoc = await Message.find(messageFilter)
-
-            MongoConnection.end();
+            if (!!email || !!subject)
+                messageDoc = await Message.find().where(
+                    { email }
+                )
         } catch (e: any)
         {
             this.onError(e)
@@ -67,7 +67,6 @@ class MessageDBAdapter {
         try
         {
             MongoConnection.connect();
-            console.log("Mongo: Performing Save Chain")
             const savedDoc = await this
                 .validate()
                 .save()
@@ -79,31 +78,28 @@ class MessageDBAdapter {
         }
     }
     validate = () => {
-        console.log("Mongo: Performing Validation")
         const validationMsg = "Failed validation: ";
         if (!this.body)
         {
             console.error(validationMsg + "no body defined...")
-            MongoConnection.end();
             this.valid = false;
             return this;
         }
 
-        const { email, name, content } = this.body as any
-        if (!email || !name || !content)
+        const { email, subject, content } = this.body as any
+        if (!email || !subject || !content)
         {
             console.error(validationMsg + "invalid body defined...")
-            MongoConnection.end();
             this.valid = false;
             return this;
         }
 
         this.validatedBody = {
-            email, name, content,
+            email, subject, content,
+            name: 'name',
             timeSent: new Date()
         }
         this.valid = true
-        console.log("Mongo: Valid")
         return this
     }
     save = async () => {
@@ -113,14 +109,20 @@ class MessageDBAdapter {
             MongoConnection.end();
             return;
         }
-        console.log("Mongo: Saving")
+        console.log("Mongo: Creating Document")
         const newMessage = new Message(this.validatedBody);
-        await newMessage.save();
-        console.log("Mongo: Finishing")
-        this.document = newMessage
+        console.log("Mongo: Saving Document")
+        try
+        {
+            this.document = await newMessage.save();
+        } catch (e: any)
+        {
+            console.error(e.message)
+        }
+        console.log("Mongo: Done", this.document)
+        console.log("Mongo: Ending Connection")
         MongoConnection.end();
-        console.log("Mongo: Returning")
-        return newMessage
+        return this.document
     }
     onError(callback: (e: any) => void) {
         this.onErrorCallback = callback

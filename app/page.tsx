@@ -1,10 +1,9 @@
-import UILayers from "@/components/Layers/UILayers";
-import Hero from "@/components/hero/Hero";
+import UILayers from "@/components/layers/UILayers";
 import DownButton from "@/components/controls/DownButton";
-import SymbolStrategy, { SymbolId } from "@/components/Layers/bg/symbols/SymbolStrategy";
 import PortfolioPage from "@/lib/enums/PortfolioPage";
-import ImageData from "@/lib/interfaces/ImageData";
+import ImageItem from "@/lib/interfaces/ImageData";
 import { useCMS } from "@/hooks/useCMS";
+import IconHero from "@/components/hero/IconHero";
 
 const title = "MIKE COLLINS"
 const subtitle = "Lead Developer"
@@ -12,26 +11,24 @@ const subtitle = "Lead Developer"
 interface AppPage {
   title: string,
   subtitle: string,
-  image: ImageData,
+  image: ImageItem,
 }
-export default function Home() {
+export default async function Home() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getObj } = useCMS()
   if (!getObj<AppPage>('home'))
     throw Error('Missing home property in content.json file.')
   const { image }: AppPage = getObj<AppPage>('home')
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <UILayers
+        halfLayout
         image={image}
-        bgSymbols={[]}>
-        <div className="flex flex-col max-sm:pl-4 justify-center">
-          <div className="flex mt-8 sm:ml-12 md:w-1/2 justify-center">
-            <SymbolStrategy symbolId={SymbolId.Arrow} />
-            <Hero {...{ title, subtitle }} page={PortfolioPage.TITLE} />
-          </div>
-        </div>
+        page={PortfolioPage.TITLE}>
+        <IconHero {...{ title, subtitle }} />
         <DownButton />
       </UILayers>
     </div>
   );
 }
+

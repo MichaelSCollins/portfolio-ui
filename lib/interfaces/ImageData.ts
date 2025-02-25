@@ -1,6 +1,6 @@
 import { OverlayAnchors } from "@/lib/enums/OverlayDirection";
 
-interface ImageData {
+interface ImageItem {
     src: string;
     alt: string;
     width?: number;
@@ -8,4 +8,4 @@ interface ImageData {
     anchor?: OverlayAnchors;
 }
 
-export default ImageData
+export default ImageItem

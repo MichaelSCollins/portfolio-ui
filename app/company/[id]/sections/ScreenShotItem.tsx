@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './page.module.css'; //
-import ImageItem from '@/lib/interfaces/ImageItem'
+import ImageItem from '@/lib/interfaces/ImageData'
 
 export const ScreenshotItem = (image: ImageItem) => {
     return <li key={image.alt}

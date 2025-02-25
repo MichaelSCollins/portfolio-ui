@@ -14,7 +14,7 @@ class HeroClassBuilder extends TailwindClassBuilder {
       case PortfolioPage.TITLE:
         classes.title = "md:text-hmd max-md:text-hsm";
         classes.subtitle = "md:text-hmd max-md:text-hxs pb-2";
-        classes.container = "justify-center"
+        classes.container = ""
         break;
       case PortfolioPage.CONTACT:
         classes.title = "md:text-hmd max-md:text-hsm";
@@ -24,7 +24,7 @@ class HeroClassBuilder extends TailwindClassBuilder {
       case PortfolioPage.ABOUT:
         classes.title = "md:text-hsm max-md:text-hxs";
         classes.subtitle = "md:text-h2xs max-md:text-h3xs";
-        classes.container = "max-sm:absolute max-sm:top-24 max-sm:mx-12"
+        classes.container = "flex flex-col md:justify-center left-24"
         break;
 
     }

@@ -1,6 +1,6 @@
 import { ScreenshotItem } from './ScreenShotItem'
 import styles from './page.module.css'; //
-import ImageItem from '@/lib/interfaces/ImageItem'
+import ImageItem from '@/lib/interfaces/ImageData'
 
 export const Screenshots = ({ images }: { images: ImageItem[] }) => {
     return <section className={styles.screenshots}>

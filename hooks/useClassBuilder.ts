@@ -1,7 +1,7 @@
 import ClassBuilderType from "@/lib/enums/TailwindBuilderType";
-import HeroClassBuilder from "@/lib/tailwind-class-builders/HeroClassBuilder";
-import OverlayImageClassBuilder from "@/lib/tailwind-class-builders/OverlayImageClassBuilder";
-import ClassBuilder from "@/lib/tailwind-class-builders/TailwindBuilder";
+import HeroClassBuilder from "@/lib/tailwind/HeroClassBuilder";
+import OverlayImageClassBuilder from "@/lib/tailwind/OverlayImageClassBuilder";
+import ClassBuilder from "@/lib/tailwind/TailwindBuilder";
 
 // Singleton Class Builder
 const classBuilders = new Map<ClassBuilderType, ClassBuilder>()

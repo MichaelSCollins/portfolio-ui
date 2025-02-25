@@ -36,10 +36,6 @@ class ApiController {
             }
             const self = this as ApiController & any
             const method = '_' + req.method?.toLowerCase()
-            console.log(
-                method + ": ", process.env.BASE_URL
-            )
-            console.log({ self: self[method] })
             const response = await self[method](req, res)
             logger.log("[$t] Created Message finished.", response)
             res.status(200).json(response); // Ensure response is sent back
@@ -49,7 +45,6 @@ class ApiController {
         }
     }
     onError(e: any, res: NextApiResponse) {
-        console.error(e)
         res.status(500).json({ error: e.message || 'Internal Server Error' }); // Send error response
     }
     async _get(

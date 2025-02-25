@@ -29,12 +29,137 @@
   "about": {
     "title": "Hire a developer",
     "subtitle": "that can take the lead",
-    "description": "As a lead developer, I bring years of experience in guiding teams and overseeing the development of complex, high-performance web applications. I specialize in both front-end and back-end technologies, including React, Angular, and various server-side frameworks such as Node.js and Springboot. My leadership approach focuses on clear communication, and efficient workflows by helping my team produce innovative, scalable solutions."
+    "description": "As a lead developer, I bring years of experience in guiding teams and overseeing the development of complex, high-performance web applications. I specialize in both front-end and back-end technologies, including React, Angular, and various server-side frameworks such as Node.js and Springboot. My leadership approach focuses on clear communication, and efficient workflows by helping my team produce innovative, scalable solutions.",
+    "image": {
+      "src": "/img/bg/image.png",
+      "width": 2046,
+      "height": 1718,
+      "alt": "overlay-image",
+      "anchor": "overlay-right"
+    }
   },
   "thanks": {
-    "title": "Message Sent!",
-    "subtitle": "thanks for your input.",
-    "description": "You can expect a response within 1-3 buisiness days..."
+    "message": {
+      "title": "Message Sent!",
+      "subtitle": "thanks for your input.",
+      "description": "You can expect a response within 1-3 buisiness days..."
+    },
+    "login": {
+      "title": "Success!",
+      "subtitle": "You have successfully logged in.",
+      "description": "You can expect a response within 1-3 buisiness days..."
+    },
+    "register": {
+      "title": "Success!",
+      "subtitle": "You have created an account.",
+      "description": "Expect a response within 1-3 days..."
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "subtitle": "to gain access.",
+    "description": "Feel free to reach out to us for any inquiries.",
+    "buttonText": "Send Message",
+    "heromage": {
+      "src": "/img/page-content/blue-guy-3.png",
+      "width": 600,
+      "height": 750,
+      "alt": "overlay-image",
+      "anchor": "overlay-right"
+    },
+    "form": {
+      "action": "http://localhost:8080/api/account/login",
+      "method": "post",
+      "inputs": [],
+      "fullWidthInputs": [
+        {
+          "name": "email",
+          "label": "Email",
+          "placeholder": "youremail@host.com",
+          "type": "email"
+        },
+        {
+          "name": "password",
+          "label": "Password",
+          "placeholder": "",
+          "type": "password"
+        }
+      ]
+    }
+  },
+  "register": {
+    "title": "Sign up",
+    "subtitle": "to gain access.",
+    "heromage": {
+      "src": "/img/page-content/blue-guy-3.png",
+      "width": 350,
+      "height": 350,
+      "alt": "overlay-image",
+      "anchor": "overlay-right",
+      "className": "mt-32"
+    },
+    "form": {
+      "action": "http://localhost:8080/api/account/register",
+      "method": "post",
+      "inputs": [
+        {
+          "name": "username",
+          "label": "Username",
+          "placeholder": "ElegantCoder123",
+          "type": "username"
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "placeholder": "youremail@host.com",
+          "type": "email"
+        },
+        {
+          "name": "password",
+          "label": "Password",
+          "type": "password"
+        },
+        {
+          "name": "confirmPassword",
+          "label": "Confirm Password",
+          "type": "password"
+        },
+        {
+          "name": "name",
+          "label": "Your Name",
+          "placeholder": "Name",
+          "type": "name"
+        },
+        {
+          "name": "phone",
+          "label": "Phone Number",
+          "type": "phone"
+        },
+        {
+          "name": "dateOfBirth",
+          "label": "Date of Birth",
+          "type": "date"
+        },
+        {
+          "name": "address",
+          "label": "Address",
+          "type": "address"
+        },
+        {
+          "name": "profileImage",
+          "label": "Profile Image",
+          "type": "profileimage",
+          "horizontalAlignment": "center"
+        },
+        {
+          "name": "role",
+          "label": "Your role on this site?",
+          "placeholder": "Developer / Recruiter / Friend",
+          "type": "textarea"
+        }
+      ],
+      "fullWidthInputs": []
+    }
   },
   "contact": {
     "title": "Got a project in",
@@ -53,16 +178,17 @@
       "method": "post",
       "inputs": [
         {
-          "name": "name",
-          "label": "Your Name",
-          "placeholder": "Name",
-          "type": "name"
+          "name": "subject",
+          "label": "Subject",
+          "placeholder": "No Subject",
+          "type": "text"
         },
         {
           "name": "email",
+          "isPersonalData": true,
           "label": "Email",
           "placeholder": "youremail@host.com",
-          "type": "email"
+          "type": "text"
         }
       ],
       "fullWidthInputs": [

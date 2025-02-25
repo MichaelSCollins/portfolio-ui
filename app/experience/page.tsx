@@ -40,7 +40,6 @@ const Experience = () => {
               width={300}
               className="w-full"
               src={experience.img.src} onLoad={() => {
-                console.log('loaded', loadedImages)
                 loadedImages += 1;
                 if (loadedImages >= experienceData.length)
                   setComplete(true)

@@ -1,11 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import ImageData from "@/lib/interfaces/ImageData"
+import ImageItem from "@/lib/interfaces/ImageData"
 import { useState } from "react"
 import fadeInAnimation from "@/lib/animations/fadeInAnimation"
 
-const ImageView = ({ image, fill = false }: { image: ImageData, fill?: boolean }) => {
+const ImageView = ({ image, fill = false }: { image: ImageItem, fill?: boolean }) => {
     const [loaded, setLoaded] = useState(false)
     return <Image
         height={image.height}

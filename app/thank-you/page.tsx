@@ -2,10 +2,18 @@ import { useCMS } from "@/hooks/useCMS";
 import Link from "next/link";
 import { FaCheckCircle, FaChevronRight } from "react-icons/fa";
 
-export default function About() {
+export default function About({
+  searchParams: {
+    action
+  }
+}: {
+  searchParams: {
+    action?: string
+  }
+}) {
   const { getString } = useCMS()
-  const title = getString('thanks.title')
-  const subtitle = getString('thanks.subtitle')
+  const title = getString(`thanks.${action}.title`)
+  const subtitle = getString(`thanks.${action}.subtitle`)
   return (
     <section
       className={`

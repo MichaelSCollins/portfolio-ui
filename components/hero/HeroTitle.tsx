@@ -1,7 +1,7 @@
 import PortfolioPage from '@/lib/enums/PortfolioPage';
 import TwBuilderType from '@/lib/enums/TailwindBuilderType';
 import useClassBuilder from '@/hooks/useClassBuilder';
-import HeroClassBuilder from '@/lib/tailwind-class-builders/HeroClassBuilder';
+import HeroClassBuilder from '@/lib/tailwind/HeroClassBuilder';
 import React from 'react';
 
 interface HeroTitleProps { title: string, subtitle?: string, page?: PortfolioPage }

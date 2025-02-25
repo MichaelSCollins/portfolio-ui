@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
+import GoogleAnalytics from "@/lib/analytics/google"
 import { NextApiRequest, NextApiResponse } from "next"
 export interface IController {
     req?: NextApiRequest
@@ -20,7 +21,6 @@ class NextApiController implements IController {
     async handler(
     ): Promise<void> {
         const action = this.req!.method?.toLowerCase() as keyof this;
-        console.log({ action })
         return await (this[action] as Function).call(this);
     }
 }

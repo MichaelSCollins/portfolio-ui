@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
-import NavBar from "@/components/Nav/NavBar";
+import NavBar from "@/components/nav/NavBar";
 import Footer from "@/components/Footer";
-
+import GoogleAnalytics from "@/lib/analytics/google";
+import "./globals.css";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -15,22 +15,25 @@ export const metadata: Metadata = {
   description: "Quality Web Design",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  GoogleAnalytics.send("pageview");
   return (
-    <><html lang="en">
+    <html lang="en">
       <body>
         <div
-          className={`${poppins.variable} relative min-h-screen h-full bg-background antialiased`}
+          className={`${poppins.variable} 
+          h-full bg-background antialiased`}
         >
           <NavBar />
           {children}
+          <Footer />
         </div>
-        <Footer />
       </body>
-    </html></>
+    </html>
   );
 }

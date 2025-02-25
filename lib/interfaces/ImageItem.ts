@@ -1,7 +1,7 @@
-interface ImageData {
-    src: string,  
+interface ImageTextItem {
+    src: string,
     alt: string,
     text: string
 }
 
-export default ImageData
+export default ImageTextItem

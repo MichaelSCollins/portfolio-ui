@@ -15,17 +15,16 @@ class OverlayTwClassBuilder extends TailwindClassBuilder {
         return this;
     }
     override build() {
-        let imageContainerStyles = 'absolute '
+        let imageContainerStyles = ' '
         switch (this.anchor)
         {
             case OverlayAnchors.BOTTOM_RIGHT:
                 if (this.page === PortfolioPage.ABOUT)
-                    imageContainerStyles += `
+                    imageContainerStyles += ` 
                         max-md:w-96 max-md:h-90
-                        bottom-0 max-md:right-0 md:-right-12`
+                         max-md:right-0 -right-12`
                 else imageContainerStyles += `
-                    max-md:h-64 max-md:w-64
-                    bottom-0 right-0`
+                    max-md:h-2/3 h-1/2 w-1/2 max-md:w-2/3 md:pt-12 ml-auto mt-auto right-0`
                 break;
             case OverlayAnchors.BOTTOM_LEFT:
                 imageContainerStyles += ` sm:w-2/5 sm:h-3/5 left-0 sm:bottom-0 

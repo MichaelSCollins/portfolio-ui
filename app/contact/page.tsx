@@ -1,20 +1,22 @@
-import Hero from '@/components/hero/Hero';
 import bgSymbols from './bg-symbols.json'
-import UILayers from '@/components/Layers/UILayers';
+import UILayers from '@/components/layers/UILayers';
 import PortfolioPage from '@/lib/enums/PortfolioPage';
 import { OverlayAnchors } from '@/lib/enums/OverlayDirection';
-import ImageData from "@/lib/interfaces/ImageData";
+import ImageItem from "@/lib/interfaces/ImageData";
 import { useCMS } from "@/hooks/useCMS";
-import Image from "next/image";
-import ContactForm from './form';
+import CMSForm from '@/components/form/form';
+import { createMessageAction } from './action';
+import HeroImageLayout from '@/components/layouts/HeroImageLayout';
+// import AccountClient from '@/lib/client/account';
 
 const page = PortfolioPage.CONTACT;
 
-const ContactPage = () => {
+const ContactPage = async () => {
     const { getString } = useCMS()
+    // const user = await AccountClient.getServerSideMe()
     const title = getString('contact.title')
     const subtitle = getString('contact.subtitle')
-    const image: ImageData = {
+    const image: ImageItem = {
         src: "/img/page-content/blue-guy-2.png",
         anchor: OverlayAnchors.BOTTOM_LEFT,
         width: 750,
@@ -22,30 +24,20 @@ const ContactPage = () => {
         alt: 'overlay-image'
     };
     return (
-        <section
-            className={`
-                px-10
-                mt-12
-                w-full
-                h-full
-                flex
-                flex-col
-                justify-center
-            `}
-        >
+        <section className={`flex flex-col 
+            justify-center w-full h-full
+            px-10 mt-12`}>
             <UILayers
                 bgSymbols={bgSymbols}
                 page={page}
-            >
-                <div className="w-full flex max-sm:flex-col sm:justify-around">
-                    <div className="flex flex-col w-full h-full">
-                        <div className="absolute">
-                            <Hero {...{ title, subtitle, page, }} hideButtons />
-                        </div>
-                        <Image {...image} className="" alt={image.alt} />
-                    </div>
-                    <ContactForm />
-                </div>
+                serverContent={<HeroImageLayout
+                    {...{ title, subtitle, image, page }}
+                >
+                    <CMSForm
+                        moduleKey={"contact"}
+                        user={undefined}
+                        action={createMessageAction} />
+                </HeroImageLayout>}>
             </UILayers>
         </section>
     );

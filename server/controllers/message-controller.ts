@@ -1,22 +1,36 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import MessageDBAdapter from "../adapters/MessageDBAdapter"
 import NextApiController, { IController } from "./_base-controller"
+import GoogleAnalytics from "@/lib/analytics/google"
 
 class MessageController extends NextApiController implements IController {
     static instance?: IController
     async post(
     ) {
-        console.log("post")
+        GoogleAnalytics.send("api_message.post");
         const document = await MessageDBAdapter.toMongoDB(
             this.req!.body
         )
-        console.log("finished saving")
-        console.log(document)
         if (!document)
         {
-            console.log(this.req!.body)
+            GoogleAnalytics.send("api_message.post_error");
             this.res!.status(500).json("Failed to activate adapter....")
         }
+        GoogleAnalytics.send("api_message.post_success");
+        this.res!.status(200).json(document)
+    }
+    async get(
+    ) {
+        GoogleAnalytics.send("api_message.get");
+        const document = await MessageDBAdapter.fromMongoDB(
+            { email: "michaelscollins.it@gmail.com" }
+        )
+        if (!document)
+        {
+            GoogleAnalytics.send("api_message.get_error");
+            this.res!.status(500).json("Failed to activate adapter....")
+        }
+        GoogleAnalytics.send("api_message.get_success");
         this.res!.status(200).json(document)
     }
 
@@ -28,6 +42,7 @@ class MessageController extends NextApiController implements IController {
         {
             MessageController.instance = new MessageController()
         }
+        GoogleAnalytics.send("api_message");
         MessageController.instance
             .setReqRes(req, res)
             .handler()

@@ -1,7 +1,10 @@
 enum PortfolioPage {
     TITLE,
     CONTACT,
-    ABOUT
+    ABOUT,
+    LOGIN,
+    HOME,
+    UNKNOWN
 }
 
 export default PortfolioPage;
