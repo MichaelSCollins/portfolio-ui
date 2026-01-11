@@ -1,0 +1,44 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.mike {
+    color: var(--foreground);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.dev {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navItems {
+    list-style: none;
+    gap: 1rem;
+    display: none;
+    flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.nav-Link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1rem;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+        flex-direction: row;
+    }
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}

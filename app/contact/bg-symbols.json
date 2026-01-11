@@ -1,0 +1,15 @@
+[
+    {
+        "symbolId": "mail",
+        "position": { 
+            "top": "9%", 
+            "right": "43%"
+        }
+    },
+    {
+        "symbolId": "keyboard",
+        "position": { 
+            "bottom": "31%", "right": "15%" 
+        }
+    }
+]

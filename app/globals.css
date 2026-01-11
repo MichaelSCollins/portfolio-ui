@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00ADB5;
+  --secondary: #3C3946;
+  --accent: #3C3946;
+  --background: #222831;
+  --foreground: #EEEEEE;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #222831;
+    --foreground: #eee;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Poppins, sans-serif;
+}
+
+.header {
+  /* MIKE COLLINS Lead Developer */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 84px;
+  line-height: 96px;
+  /* or 114% */
+
+  /* Color 3 */
+  color: #EEEEEE;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+}
+
+main {
+  @apply flex flex-row
+}
