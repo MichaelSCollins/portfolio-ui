@@ -105,7 +105,7 @@ const ContactForm = () => {
             </button> */}
             <AlertDialog
                 alertTitle="Unfunded Project"
-                alertContent={"Please hire at greater than 140k or invest in my Indie Game Dev Or Software Engineering Company to enable feature. Any contributions to my Music Event Company might lead to the servers getting turned back on for this as it's my favorite thing to do (code). :) Thank you guys for the love and support the past month has been hard for our family but we are determined. "
+                alertContent={"Please hire at greater than 140k or invest in my Indie Game Dev Or Software Engineering Company to enable feature. Any contributions to my Music Event Company might lead to the servers getting turned back on for this as it's my favorite thing to do (code). :) Thank you guys for the love and support the past month has been hard for our family but we are determined. "}
                 buttonGroup={{
                     primary: {
                         label: "Send",

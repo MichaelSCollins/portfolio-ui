@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RiArrowDropLeftFill } from "react-icons/ri";
-import { BasicInfo, Screenshots, Achievements } from '@/app/company/[id]/sections';
+import { BasicInfo, Screenshots, Achievements } from '@/../app/company/[id]/sections';
 import ExperienceItem from '../../../lib/interfaces/ExperienceItem'
 import experiences from '@/../.fake/experience'
 import StackedBarChart from './sections/chart';
